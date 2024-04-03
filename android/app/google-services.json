@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "922866217585",
+    "project_id": "bookngo-3b386",
+    "storage_bucket": "bookngo-3b386.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922866217585:android:a7868869dcb753b174a1d0",
+        "android_client_info": {
+          "package_name": "com.bng"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_C5Wx25p4TQIoY-Q1R_VjjRTJofgiCBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

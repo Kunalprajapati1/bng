@@ -221,6 +221,7 @@
 // export default Login;
 // Login.js
 
+
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, Alert, StyleSheet } from 'react-native';
 import firebase from '@react-native-firebase/app';
@@ -241,6 +242,8 @@ const Login = ({ navigation }) => {
       const { user } = await firebase.auth().signInWithEmailAndPassword(email, password);
       // Save user token to AsyncStorage
       await AsyncStorage.setItem('userToken', user.uid);
+      await AsyncStorage.setItem('userEmail', email);
+
       // Navigate to the profile screen
       navigation.navigate('Profile');
     } catch (error) {

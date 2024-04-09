@@ -8,6 +8,9 @@ import Menu from './src/components/Menu';
 import Login from './src/components/Login';
 import Sign from './src/components/Sign';
 import Profile from './src/components/Profile';
+import Contact from './src/components/Contact';
+import Trips from './src/components/Trips';
+import Server from './src/components/Server';
 
 
 const Stack = createStackNavigator();
@@ -29,6 +32,9 @@ const App = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Sign" component={Sign} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Trips" component={Trips} />
+        <Stack.Screen name="Server" component={Server} />
         
       </Stack.Navigator>
     </NavigationContainer>

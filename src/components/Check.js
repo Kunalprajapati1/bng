@@ -2316,3 +2316,94 @@ export default Home;
       
         </Modal> */}
         {/* Modal */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             {/* <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <ScrollView style={styles.scrollView2}>
+            <View style={[styles.modalContainer, { width }]}>
+              <View style={styles.modalContent}>
+                <Text>Source:</Text>
+                <GooglePlacesAutocomplete
+                  placeholder="Enter source"
+                  onPress={(data, details = null) => {
+                    setSource(data.description);
+                  }}
+                  query={{
+                    key: 'AIzaSyA3a7ovUHUGvCNl6pmQZUTOoM6WtowHHt4',
+                    language: 'en',
+                  }}
+                  fetchDetails={true}
+                  styles={{
+                    textInput: styles.input,
+                    container: { marginBottom: 10 },
+                  }}
+                />
+                <Text>Destination:</Text>
+                <GooglePlacesAutocomplete
+                  placeholder="Enter destination"
+                  onPress={(data, details = null) => {
+                    setDestination(data.description);
+                  }}
+                  query={{
+                    key: 'AIzaSyA3a7ovUHUGvCNl6pmQZUTOoM6WtowHHt4',
+                    language: 'en',
+                  }}
+                  fetchDetails={true}
+                  styles={{
+                    textInput: styles.input,
+                    container: { marginBottom: 10 },
+                  }}
+                />
+                <View style={styles.calendarContainer}>
+                  <Calendar
+                    current={selectedDate ? selectedDate : new Date().toISOString().split('T')[0]}
+                    onDayPress={(day) => {
+                      setSelectedDate(day.dateString);
+                    }}
+                    markedDates={{
+                      [selectedDate]: { selected: true, marked: true, selectedColor: 'blue' },
+                    }}
+                  />
+                </View>
+                <Text>Choose Your Option:</Text>
+                <View style={styles.optionContainer}>
+                  <TouchableOpacity
+                    style={[styles.optionButton, selectedOption === "driving" && styles.selectedOption]}
+                    onPress={() => handleOptionSelect("driving")}
+                  >
+                    <Text style={styles.optionText}>I am driving</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[styles.optionButton, selectedOption === "riding" && styles.selectedOption]}
+                    onPress={() => handleOptionSelect("riding")}
+                  >
+                    <Text style={styles.optionText}>I am riding</Text>
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.touchableButton} onPress={handleCloseModal}>
+                  <Text style={styles.buttonText}>Search</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableButton} onPress={() => setModalVisible(false)}>
+                  <Text style={styles.buttonText}>Close</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+        </Modal> */}

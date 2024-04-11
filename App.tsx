@@ -11,6 +11,10 @@ import Profile from './src/components/Profile';
 import Contact from './src/components/Contact';
 import Trips from './src/components/Trips';
 import Server from './src/components/Server';
+import Safety from './src/components/Safety';
+import Privacy from './src/components/Privacy';
+import Terms from './src/components/Terms';
+import Howto from './src/components/Howto';
 
 
 const Stack = createStackNavigator();
@@ -35,6 +39,10 @@ const App = () => {
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Trips" component={Trips} />
         <Stack.Screen name="Server" component={Server} />
+        <Stack.Screen name="Safety" component={Safety} />
+        {/* <Stack.Screen name="Privacy" component={Privacy} /> */}
+        <Stack.Screen name="Terms" component={Terms} />
+        <Stack.Screen name="Howto" component={Howto} />
         
       </Stack.Navigator>
     </NavigationContainer>

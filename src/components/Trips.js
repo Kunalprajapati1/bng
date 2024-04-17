@@ -50,6 +50,9 @@ const Trips = () => {
               <Text>Source: {trip.source}</Text>
               <Text>Destination: {trip.destination}</Text>
               <Text>Date: {trip.selectedDate}</Text>
+              <Text>Distance: {trip.distance}</Text>
+              <Text>Price: {trip.price}</Text>
+
               {/* Add more trip details as needed */}
             </View>
           ))}

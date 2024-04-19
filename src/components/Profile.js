@@ -5,11 +5,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 import '@react-native-firebase/firestore';
-
+import { useColorScheme } from 'react-native';
 const Profile = () => {
   const navigation = useNavigation();
   const [userDetails, setUserDetails] = useState(null);
+  const colorScheme = useColorScheme();
+  // const textColor = colorScheme === 'dark' ? '#000000' : '#ffffff';
+  const textColor = colorScheme === 'dark' ? '#000000' : '#000000';
 
+
+  // const textColor = colorScheme === 'dark' ? 'white' : 'black';
   useEffect(() => {
     fetchUserDetails();
   }, []);

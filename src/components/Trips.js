@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import firestore from '@react-native-firebase/firestore'; // Import Firestore
 import auth from '@react-native-firebase/auth'; // Import Firebase Auth
-
+import { useColorScheme } from 'react-native';
 const Trips = () => {
   const [userTrips, setUserTrips] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const colorScheme = useColorScheme();
+  // const textColor = colorScheme === 'dark' ? 'white' : 'black';
+  // const textColor = colorScheme === 'dark' ? '#000000' : '#ffffff';
+  const textColor = colorScheme === 'dark' ? '#000000' : '#000000';
+
 
   useEffect(() => {
     const fetchUserTrips = async () => {

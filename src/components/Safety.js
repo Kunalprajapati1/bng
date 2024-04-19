@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
+import { useColorScheme } from 'react-native';
 const Safety = () => {
   return (
     <View style={styles.container}  >

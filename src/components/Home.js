@@ -657,28 +657,42 @@ const Home = () => {
     </View>
   );
 
-  const handleSearchPress = async () => {
-    try {
-      setLoading(true);
-      const userToken = await AsyncStorage.getItem('userToken');
-      if (userToken) {
-        const userEmail = await AsyncStorage.getItem('userEmail');
-        setEmail(userEmail);
-        setModalVisible(true);
+  // const handleSearchPress = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const userToken = await AsyncStorage.getItem('userToken');
+  //     if (userToken) {
+  //       const userEmail = await AsyncStorage.getItem('userEmail');
+  //       setEmail(userEmail);
+  //       setModalVisible(true);
 
-        setSelectedDate(null);
-        setSelectedOption('');
-        setSource('');
-        setDestination('');
-      } else {
-        navigation.navigate('Login');
-      }
-    } catch (error) {
-      console.error('Error checking user login:', error);
-    }finally {
-      setLoading(false); // Set loading state to false
-    }
+  //       setSelectedDate(null);
+  //       setSelectedOption('');
+  //       setSource('');
+  //       setDestination('');
+  //     } else {
+  //       navigation.navigate('Login');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error checking user login:', error);
+  //   }finally {
+  //     setLoading(false); // Set loading state to false
+  //   }
+  // };
+
+
+
+
+  const handleSearchPress = async () => {
+    navigation.navigate('Anywhere');
   };
+
+
+
+
+
+
+
 
   // const handleCloseModal = async () => {
   //   try {
@@ -904,6 +918,9 @@ const Home = () => {
   const handleContact = () => {
     navigation.navigate('Contact');
   };
+  const handlePayment = () => {
+    navigation.navigate('Payment');
+  };
   const handlePrivacy = () => {
     // navigation.navigate('Privacy');
   };
@@ -941,6 +958,9 @@ const Home = () => {
               </TouchableOpacity>
               <TouchableOpacity style={styles.menuItem} onPress={handleContact}>
                 <Text style={[styles.menuItemText, ]}>Contact Us</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.menuItem} onPress={handlePayment}>
+                <Text style={[styles.menuItemText, ]}>Payment</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.menuItem} onPress={handleSafety}>
                 <Text style={[styles.menuItemText, ]}>Safety</Text>

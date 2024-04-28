@@ -527,39 +527,32 @@
 // export default Anywhere;
 
 
-
-
-
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView, Modal, Alert } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Calendar } from 'react-native-calendars';
-import firestore from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore'; // Import Firestore
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import MapView, { Marker, Polyline } from 'react-native-maps';
 
 const Anywhere = () => {
- const [source, setSource] = useState('');
+  const [source, setSource] = useState('');
   const [destination, setDestination] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedOption, setSelectedOption] = useState('');
-  const [showModal, setShowModal] = useState(false);
-  const [sourceCoords, setSourceCoords] = useState(null);
-  const [destinationCoords, setDestinationCoords] = useState(null);
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
 
-
-const handleSearch = async () => {
+  const handleSearch = async () => {
     try {
-        const userEmail = await AsyncStorage.getItem('userEmail');
+      const userEmail = await AsyncStorage.getItem('userEmail');
 
-        // Ensure userEmail is not null or undefined
-        if (!userEmail) {
-          throw new Error("User email not found in AsyncStorage");
-        }
+      // Ensure userEmail is not null or undefined
+      if (!userEmail) {
+        throw new Error("User email not found in AsyncStorage");
+      }
       // Fetch coordinates for source and destination using Google Maps Geocoding API
       const sourceResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${source}&key=AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY`);
       const sourceData = await sourceResponse.json();
@@ -567,31 +560,31 @@ const handleSearch = async () => {
         throw new Error(`Failed to geocode source address: ${sourceData.error_message}`);
       }
       const sourceCoords = sourceData.results[0]?.geometry?.location;
-  
+
       const destinationResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${destination}&key=AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY`);
       const destinationData = await destinationResponse.json();
       if (destinationData.status !== 'OK') {
         throw new Error(`Failed to geocode destination address: ${destinationData.error_message}`);
       }
       const destinationCoords = destinationData.results[0]?.geometry?.location;
-  
+
       if (!sourceCoords || !destinationCoords) {
         throw new Error('Failed to fetch coordinates for source or destination address.');
       }
-  
+
       // Calculate distance between source and destination coordinates
       let calculatedDistance = calculateDistance(sourceCoords, destinationCoords);
-  
+
       // calculatedDistance = Math.round(calculatedDistance);
       // calculatedDistance = Math.ceil(calculatedDistance);
-  
+
       // Calculate price based on distance ($10 per km)
       const price = (calculatedDistance * 10).toFixed(2); // Price in dollars, rounded to 2 decimal places
-  
+
       // Save trip details to Firestore with price
       if (selectedOption === "driving") {
         await firestore().collection('Drivers').add({
-            email: userEmail,
+          email: userEmail,
           source,
           destination,
           selectedDate,
@@ -601,7 +594,7 @@ const handleSearch = async () => {
         });
       } else if (selectedOption === "riding") {
         await firestore().collection('Riders').add({
-            email: userEmail,
+          email: userEmail,
           source,
           destination,
           selectedDate,
@@ -612,9 +605,9 @@ const handleSearch = async () => {
       } else {
         throw new Error("Selected option is not valid.");
       }
-  
+
       setShowModal(false);
-  
+
       // Show alert
       Alert.alert(
         "Success",
@@ -637,23 +630,23 @@ const handleSearch = async () => {
     const toRadians = (degrees) => {
       return degrees * Math.PI / 180;
     };
-  
+
     const earthRadiusKm = 6371;
     const dLat = toRadians(destinationCoords.lat - sourceCoords.lat);
     const dLon = toRadians(destinationCoords.lng - sourceCoords.lng);
     const lat1 = toRadians(sourceCoords.lat);
     const lat2 = toRadians(destinationCoords.lat);
-  
+
     // Correct calculation of the central angle
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
               Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  
+
     const distance = earthRadiusKm * c;
-  
+
     return distance.toFixed(2); // Distance in kilometers, rounded to 2 decimal places
   };
-  
+
 
   const onDayPress = (day) => {
     setSelectedDate(day.dateString);
@@ -665,6 +658,54 @@ const handleSearch = async () => {
         <Text style={styles.buttonText}>Add</Text>
       </TouchableOpacity>
 
+      <View style={styles.searchBar2}>
+        <GooglePlacesAutocomplete
+          placeholder="Enter source"
+          placeholderTextColor="#757575"
+          onPress={(data, details = null) => {
+            if (data && data.description) {
+              setSource(data.description);
+            }
+          }}
+          query={{
+            key: 'AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY',
+
+            language: 'en',
+          }}
+          fetchDetails={true}
+          styles={{
+            textInput: [styles.input],
+            description: styles.description,
+            listView: styles.listView,
+          }}
+        />
+      </View>
+
+      {/* Search bar for Destination */}
+      <View style={styles.searchBar3}>
+        <GooglePlacesAutocomplete
+          placeholder="Enter destination"
+          placeholderTextColor="#757575"
+          onPress={(data, details = null) => {
+            if (data && data.description) {
+              setDestination(data.description);
+            }
+          }}
+          query={{
+            key: 'AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY',
+
+            language: 'en',
+          }}
+          fetchDetails={true}
+          styles={{
+            textInput: [styles.input],
+            description: styles.description,
+            listView: styles.listView,
+          }}
+        />
+      </View>
+
+      {/* Modal */}
       <Modal
         visible={showModal}
         transparent={true}
@@ -674,6 +715,7 @@ const handleSearch = async () => {
         <View style={styles.modalContainer}>
           <KeyboardAvoidingView style={styles.modalContent} behavior="padding">
             <Text style={styles.title}>Anywhere</Text>
+
             {/* Source Input */}
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Source:</Text>
@@ -686,9 +728,9 @@ const handleSearch = async () => {
                   }
                 }}
                 query={{
-                    key: 'AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY',
+                  key: 'AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY',
 
-                    language: 'en',
+                  language: 'en',
                 }}
                 fetchDetails={true}
                 styles={{
@@ -698,11 +740,12 @@ const handleSearch = async () => {
                 }}
               />
             </View>
+
             {/* Destination Input */}
             <View style={styles.inputContainer}>
               <Text style={styles.label2}>Destination:</Text>
               <GooglePlacesAutocomplete
-                placeholder="Enter Destination"
+                placeholder="Enter destination"
                 placeholderTextColor="#757575"
                 onPress={(data, details = null) => {
                   if (data && data.description) {
@@ -710,9 +753,9 @@ const handleSearch = async () => {
                   }
                 }}
                 query={{
-                    key: 'AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY',
+                                    key: 'AIzaSyC0vxMvW9CnRrTDp4rUFpA78V3nAOpEEhY',
 
-                    language: 'en',
+                  language: 'en',
                 }}
                 fetchDetails={true}
                 styles={{
@@ -722,16 +765,18 @@ const handleSearch = async () => {
                 }}
               />
             </View>
+
             {/* Calendar */}
             <Text style={[styles.label, { marginTop: 80 }]}>Select Date:</Text>
             <Calendar
               onDayPress={onDayPress}
-              minDate={new Date().toISOString().split('T')[0]}
+              minDate={new Date().toISOString().split('T')[0]} // Restrict selection before current date
               markedDates={{
-                [selectedDate]: { selected: true, marked: true, dotColor: 'red' },
+                [selectedDate]: { selected: true, marked: true, dotColor: 'red' }, // Highlight selected date with a circle
               }}
               style={styles.calendar}
             />
+
             {/* Options */}
             <View style={styles.optionContainer}>
               <TouchableOpacity
@@ -747,6 +792,7 @@ const handleSearch = async () => {
                 <Text style={styles.optionText}>I am riding</Text>
               </TouchableOpacity>
             </View>
+
             {/* Search Button */}
             <TouchableOpacity style={[styles.touchableButton, styles.searchButton]} onPress={handleSearch}>
               <Text style={styles.buttonText}>Search</Text>
@@ -754,34 +800,9 @@ const handleSearch = async () => {
           </KeyboardAvoidingView>
         </View>
       </Modal>
-
-      {sourceCoords && destinationCoords && (
-        <View style={{ flex: 1 }}>
-          <Text>Source: {source}</Text>
-          <Text>Destination: {destination}</Text>
-          <MapView
-            style={{ flex: 1 }}
-            initialRegion={{
-              latitude: sourceCoords.latitude,
-              longitude: sourceCoords.longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          >
-            <Marker coordinate={sourceCoords} title="Source" />
-            <Marker coordinate={destinationCoords} title="Destination" />
-            <Polyline
-              coordinates={[sourceCoords, destinationCoords]}
-              strokeColor="#FF0000"
-              strokeWidth={3}
-            />
-          </MapView>
-        </View>
-      )}
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -885,9 +906,22 @@ const styles = StyleSheet.create({
     marginTop: 60,
     color: '#424242',
   },
+
+  searchBar2:{
+top:40,
+
+
+  },
+  searchBar3:{
+    top:120,
+    
+    
+      },
 });
 
 export default Anywhere;
+
+
 
 
 

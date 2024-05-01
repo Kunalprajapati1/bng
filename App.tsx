@@ -17,6 +17,7 @@ import Terms from './src/components/Terms';
 import Howto from './src/components/Howto';
 import Payment from './src/components/Payment';
 import Anywhere from './src/components/Anywhere';
+import Getstarted from './src/components/Getstarted';
 
 
 const Stack = createStackNavigator();
@@ -32,6 +33,8 @@ const App = () => {
     
       
       >
+        <Stack.Screen name="Getstarted" component={Getstarted} />
+
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="Menu" component={Menu} />

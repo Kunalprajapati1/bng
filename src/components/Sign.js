@@ -306,6 +306,14 @@ const SignUp = () => {
         <Picker.Item label="Prefer Not to Say" value="prefer_not_to_say" />
         <Picker.Item label="Other" value="other" />
       </Picker>
+
+      <View>
+
+{/* <Text>DO you accept pay to mobile ? </Text>
+<Text>yes</Text>
+<Text>No</Text> */}
+
+      </View>
       {/* Conditional rendering of sign-up button with activity indicator */}
       {loading ? (
         <ActivityIndicator style={styles.signUpButton} size="large" color={textColor} />

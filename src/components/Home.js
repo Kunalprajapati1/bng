@@ -657,35 +657,35 @@ const Home = () => {
     </View>
   );
 
-  // const handleSearchPress = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const userToken = await AsyncStorage.getItem('userToken');
-  //     if (userToken) {
-  //       const userEmail = await AsyncStorage.getItem('userEmail');
-  //       setEmail(userEmail);
-  //       setModalVisible(true);
-
-  //       setSelectedDate(null);
-  //       setSelectedOption('');
-  //       setSource('');
-  //       setDestination('');
-  //     } else {
-  //       navigation.navigate('Login');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error checking user login:', error);
-  //   }finally {
-  //     setLoading(false); // Set loading state to false
-  //   }
-  // };
-
-
-
-
   const handleSearchPress = async () => {
-    navigation.navigate('Anywhere');
+    try {
+      setLoading(true);
+      const userToken = await AsyncStorage.getItem('userToken');
+      if (userToken) {
+        const userEmail = await AsyncStorage.getItem('userEmail');
+        setEmail(userEmail);
+        setModalVisible(true);
+
+        setSelectedDate(null);
+        setSelectedOption('');
+        setSource('');
+        setDestination('');
+      } else {
+        navigation.navigate('Login');
+      }
+    } catch (error) {
+      console.error('Error checking user login:', error);
+    }finally {
+      setLoading(false); // Set loading state to false
+    }
   };
+
+
+
+
+  // const handleSearchPress = async () => {
+  //   navigation.navigate('Anywhere');
+  // };
 
 
 

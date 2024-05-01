@@ -12,12 +12,15 @@ import Contact from './src/components/Contact';
 import Trips from './src/components/Trips';
 import Server from './src/components/Server';
 import Safety from './src/components/Safety';
-// import Privacy from './src/components/Privacy';
+
 import Terms from './src/components/Terms';
 import Howto from './src/components/Howto';
 import Payment from './src/components/Payment';
 import Anywhere from './src/components/Anywhere';
 import Getstarted from './src/components/Getstarted';
+import Second from './src/components/Second';
+import Third from './src/components/Third';
+import Fourth from './src/components/Fourth';
 
 
 const Stack = createStackNavigator();
@@ -34,6 +37,9 @@ const App = () => {
       
       >
         <Stack.Screen name="Getstarted" component={Getstarted} />
+        <Stack.Screen name="Second" component={Second} />
+        <Stack.Screen name="Third" component={Third} />
+        <Stack.Screen name="Fourth" component={Fourth} />
 
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Search" component={Search} />
@@ -45,7 +51,7 @@ const App = () => {
         <Stack.Screen name="Trips" component={Trips} />
         <Stack.Screen name="Server" component={Server} />
         <Stack.Screen name="Safety" component={Safety} />
-        {/* <Stack.Screen name="Privacy" component={Privacy} /> */}
+       
         <Stack.Screen name="Terms" component={Terms} />
         <Stack.Screen name="Howto" component={Howto} />
         <Stack.Screen name="Payment" component={Payment} />

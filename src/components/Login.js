@@ -1,17 +1,19 @@
 
-
 // import React, { useState } from 'react';
 // import { View, TextInput, TouchableOpacity, Text, Alert, StyleSheet, ActivityIndicator } from 'react-native';
 // import firebase from '@react-native-firebase/app';
 // import '@react-native-firebase/auth';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { useColorScheme } from 'react-native';
+
 // const Login = ({ navigation }) => {
 //   const [email, setEmail] = useState('');
 //   const [password, setPassword] = useState('');
-//   const [isLoading, setIsLoading] = useState(false); // State variable for activity indicator
+//   const [isLoading, setIsLoading] = useState(false);
 //   const colorScheme = useColorScheme();
-//   const textColor = colorScheme === 'dark' ? 'white' : 'black';
+//   // const textColor = colorScheme === 'dark' ? 'white' : 'black';
+//   const textColor = colorScheme === 'dark' ? '#000000' : '#000000';
+
 //   const handleLogin = async () => {
 //     if (!email || !password) {
 //       Alert.alert('Error', 'Please fill in all fields');
@@ -19,26 +21,23 @@
 //     }
 
 //     try {
-//       setIsLoading(true); // Show activity indicator
+//       setIsLoading(true);
 //       const { user } = await firebase.auth().signInWithEmailAndPassword(email, password);
       
-//       // Check if the email is verified
 //       if (!user.emailVerified) {
 //         Alert.alert('Email Not Verified', 'Please verify your email before logging in.');
-//         setIsLoading(false); // Hide activity indicator
+//         setIsLoading(false);
 //         return;
 //       }
 
-//       // Save user token to AsyncStorage
 //       await AsyncStorage.setItem('userToken', user.uid);
 //       await AsyncStorage.setItem('userEmail', email);
 
-//       // Navigate to the profile screen
 //       navigation.navigate('Profile');
 //     } catch (error) {
 //       Alert.alert('Error', 'Incorrect email or password. Please try again.');
 //     } finally {
-//       setIsLoading(false); // Hide activity indicator in case of success or failure
+//       setIsLoading(false);
 //     }
 //   };
 
@@ -56,38 +55,47 @@
 //     }
 //   };
 
+//   return (
+//     <View style={styles.container}>
+//       {/* <TextInput
+//         style={[styles.input, { color: 'black'}]}
+//         placeholder="Email"
+//         value={email}
+//         onChangeText={setEmail}
+//       /> */}
 
 
-// return (
-//   <View style={styles.container}>
-//     <TextInput
-//       style={styles.input}
-//       placeholder="Email"
-//       value={email}
-//       onChangeText={setEmail}
-//     />
-//     <TextInput
-//       style={styles.input}
-//       placeholder="Password"
-//       value={password}
-//       onChangeText={setPassword}
-//       secureTextEntry
-//     />
-//     <TouchableOpacity style={styles.loginButton} onPress={handleLogin} disabled={isLoading}>
-//       {isLoading ? (
-//         <ActivityIndicator size="small" color="white" />
-//       ) : (
-//         <Text style={styles.loginButtonText}>Login</Text>
-//       )}
-//     </TouchableOpacity>
-//     <TouchableOpacity onPress={handleForgotPassword}>
-//       <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-//     </TouchableOpacity>
-//     <TouchableOpacity onPress={() => navigation.navigate('Sign')}>
-//       <Text style={styles.signupText}>Don't have an account? Sign Up</Text>
-//     </TouchableOpacity>
-//   </View>
-// );
+// <TextInput
+//   style={[styles.input, { color: 'black' }]}
+//   placeholder="Email"
+//   placeholderTextColor="black"
+//   value={email}
+//   onChangeText={setEmail}
+// />
+//       <TextInput
+//         style={[styles.input, { color: 'black'}]}
+//         placeholder="Password"
+//   placeholderTextColor="black"
+
+//         value={password}
+//         onChangeText={setPassword}
+//         secureTextEntry
+//       />
+//       <TouchableOpacity style={[styles.loginButton, { backgroundColor: textColor === 'dark' ? 'blue' : 'gray' }]} onPress={handleLogin} disabled={isLoading}>
+//         {isLoading ? (
+//           <ActivityIndicator size="small" color={textColor} />
+//         ) : (
+//           <Text style={[styles.loginButtonText, { color: textColor }]}>Login</Text>
+//         )}
+//       </TouchableOpacity>
+//       <TouchableOpacity onPress={handleForgotPassword}>
+//         <Text style={[styles.forgotPasswordText]}>Forgot Password?</Text>
+//       </TouchableOpacity>
+//       <TouchableOpacity onPress={() => navigation.navigate('Sign')}>
+//         <Text style={[styles.signupText]}>Don't have an account? Sign Up</Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
 // };
 
 // const styles = StyleSheet.create({
@@ -105,7 +113,6 @@
 //     borderBottomColor: '#ccc',
 //   },
 //   loginButton: {
-//     backgroundColor: 'blue',
 //     padding: 15,
 //     borderRadius: 10,
 //     width: '100%',
@@ -113,30 +120,27 @@
 //     marginTop: 10,
 //   },
 //   loginButtonText: {
-//     color: 'white',
 //     fontSize: 18,
 //     fontWeight: 'bold',
 //   },
 //   forgotPasswordText: {
 //     marginTop: 10,
-//     color: 'blue',
+//     color:'black',
+
 //     textDecorationLine: 'underline',
 //   },
 //   signupText: {
 //     marginTop: 20,
-//     color: 'blue',
+    
+//     color:'black',
 //     textDecorationLine: 'underline',
-//   },
-//   activityIndicator: {
-//     marginTop: 10,
 //   },
 // });
 
 // export default Login;
 
-
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text, Alert, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, TextInput, TouchableOpacity, loading,ScrollView,Text, Alert, StyleSheet, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -147,10 +151,11 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const colorScheme = useColorScheme();
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   // const textColor = colorScheme === 'dark' ? 'white' : 'black';
   const textColor = colorScheme === 'dark' ? '#000000' : '#000000';
 
-  const handleLogin = async () => {
+  const handleContinue = async () => {
     if (!email || !password) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
@@ -169,7 +174,7 @@ const Login = ({ navigation }) => {
       await AsyncStorage.setItem('userToken', user.uid);
       await AsyncStorage.setItem('userEmail', email);
 
-      navigation.navigate('Profile');
+      navigation.navigate('Home');
     } catch (error) {
       Alert.alert('Error', 'Incorrect email or password. Please try again.');
     } finally {
@@ -191,86 +196,152 @@ const Login = ({ navigation }) => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
   return (
-    <View style={styles.container}>
-      {/* <TextInput
-        style={[styles.input, { color: 'black'}]}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      /> */}
-
-
-<TextInput
-  style={[styles.input, { color: 'black' }]}
-  placeholder="Email"
-  placeholderTextColor="black"
-  value={email}
-  onChangeText={setEmail}
-/>
-      <TextInput
-        style={[styles.input, { color: 'black'}]}
-        placeholder="Password"
-  placeholderTextColor="black"
-
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <TouchableOpacity style={[styles.loginButton, { backgroundColor: textColor === 'dark' ? 'blue' : 'gray' }]} onPress={handleLogin} disabled={isLoading}>
-        {isLoading ? (
-          <ActivityIndicator size="small" color={textColor} />
-        ) : (
-          <Text style={[styles.loginButtonText, { color: textColor }]}>Login</Text>
-        )}
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleForgotPassword}>
-        <Text style={[styles.forgotPasswordText]}>Forgot Password?</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Sign')}>
-        <Text style={[styles.signupText]}>Don't have an account? Sign Up</Text>
-      </TouchableOpacity>
-    </View>
+    <ScrollView contentContainerStyle={styles.scrollView}>
+      <View style={styles.container}>
+        <Text style={styles.heading}>Log In to Your Account</Text>
+        <Text style={styles.sheading}>
+          Thank you for again Re-starting your Journey with us!
+        </Text>
+        <View style={styles.textField}>
+          <View>
+            <Text style={styles.label}>Email</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+            />
+          </View>
+          <View>
+            <Text style={styles.label}>Password</Text>
+            <View style={styles.passwordContainer}>
+              <TextInput
+                style={styles.passwordInput}
+                placeholder="Enter your password"
+                secureTextEntry={!isPasswordVisible}
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+              />
+              <TouchableWithoutFeedback onPress={togglePasswordVisibility}>
+                <View style={styles.eyeIcon}>
+                  <Text style={styles.eyeIcon}>{isPasswordVisible ? '👁️' : '👁️‍🗨'}</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+          </View>
+          <TouchableOpacity onPress={handleContinue} style={styles.button} disabled={loading}>
+            {loading ? (
+              <ActivityIndicator color="white" />
+            ) : (
+              <Text style={styles.buttonText}>Login</Text>
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', marginTop: 10, textDecorationLine: 'underline', letterSpacing: 1, fontSize: 18 }}>
+              Forgot Password?
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
+            <Text style={{ fontFamily: 'Montserrat-SemiBold', justifyContent: 'center', marginTop: 0, }}> Don't have an account? <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', textDecorationLine: 'underline' }}>Sign In</Text></Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flexGrow: 1,
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    marginTop: 60,
+  },
+  heading: {
+    textDecorationLine:'underline',
+    fontSize: 28,
+    textAlign: 'center',
+    marginVertical: 65,
+    fontFamily: 'Montserrat-SemiBold',
+  },
+  sheading: {
+    fontSize: 19,
+    textAlign: 'center',
+    bottom:30,
+    fontFamily: 'Montserrat-Regular',
+  },
+  textField: {
+    bottom:50,
+    marginVertical: 65,
+    paddingHorizontal: 30,
+    width: '100%',
+  },
+  label: {
+    fontFamily: 'Montserrat-SemiBold',
+    paddingHorizontal: 2,
+    letterSpacing:1,
+    marginBottom:20,
+    textDecorationLine:'underline',
+    fontSize:17,
   },
   input: {
+    letterSpacing:2,
+    height: 50,
+    borderColor: 'gray',
+    borderWidth: 1,
     width: '100%',
-    marginBottom: 10,
     padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    marginBottom: 16,
+    borderRadius: 17,
+    fontFamily: 'Montserrat-Regular',
   },
-  loginButton: {
-    padding: 15,
-    borderRadius: 10,
-    width: '100%',
+  passwordContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 10,
   },
-  loginButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  passwordInput: {
+    flex: 1,
+    letterSpacing:2,
+    height: 50,
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 16,
+    borderRadius: 17,
+    fontFamily: 'Montserrat-Regular',
   },
-  forgotPasswordText: {
-    marginTop: 10,
-    color:'black',
-
-    textDecorationLine: 'underline',
+  eyeIcon: {
+    marginLeft: -17,
+    marginTop: -10,
+    fontSize: 22,
   },
-  signupText: {
+  button: {
+    backgroundColor: '#fea90a',
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    width: '100%',
+    borderRadius: 30,
+    marginLeft: '0%',
     marginTop: 20,
-    
-    color:'black',
-    textDecorationLine: 'underline',
+    fontFamily: 'Montserrat-Regular',
+  },
+  buttonText: {
+    color: 'white',
+    letterSpacing:1,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: 'Montserrat-Regular',
   },
 });
+
 
 export default Login;

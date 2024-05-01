@@ -1,7 +1,26 @@
+import React, { useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {StyleSheet, Image, View, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+
 
 const GetStarted = ({navigation}) => {
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const userToken = await AsyncStorage.getItem('userToken');
+        if (userToken) {
+          // If user is logged in, navigate to Home
+          navigation.navigate('Home');
+        }
+      } catch (error) {
+        console.error('Error checking login status:', error);
+      }
+    };
+
+    checkLoginStatus();
+  }, [navigation]);
   
   return (
     <>
@@ -51,7 +70,7 @@ const GetStarted = ({navigation}) => {
           {/* Whether you're heading to work, meeting friends, or exploring the city, we're here to make your journey comfortable and efficient. Our drivers are dedicated to providing safe and timely transportation, ensuring you arrive at your destination with ease. Enjoy the convenience of hassle-free booking, real-time tracking, and exceptional service. Your journey begins with us! */}
           </Text>
           
-          <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('Second')} style={styles.button}>
             <Text style={styles.buttonText}>Get Started</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>

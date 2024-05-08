@@ -1394,19 +1394,19 @@ const Home = () => {
       calculatedDistance = Math.ceil(calculatedDistance);
       // Determine the price based on the distance range
       let price = 0;
-      if (calculatedDistance >= 45 && calculatedDistance <= 100) {
+      if (calculatedDistance >= 50 && calculatedDistance <= 100) {
         price = 34;
-      } else if (calculatedDistance > 100 && calculatedDistance <= 200) {
+      } else if (calculatedDistance > 101 && calculatedDistance <= 200) {
         price = 40;
-      } else if (calculatedDistance > 200 && calculatedDistance <= 300) {
+      } else if (calculatedDistance > 201 && calculatedDistance <= 300) {
         price = 45;
-      } else if (calculatedDistance > 300 && calculatedDistance <= 400) {
+      } else if (calculatedDistance > 301 && calculatedDistance <= 400) {
         price = 57;
-      } else if (calculatedDistance > 400 && calculatedDistance <= 500) {
+      } else if (calculatedDistance > 401 && calculatedDistance <= 500) {
         price = 70;
-      } else if (calculatedDistance > 500 && calculatedDistance <= 600) {
+      } else if (calculatedDistance > 501 && calculatedDistance <= 600) {
         price = 80;
-      } else if (calculatedDistance > 600 && calculatedDistance <= 700) {
+      } else if (calculatedDistance > 601 && calculatedDistance <= 700) {
         price = 91;
       } else {
         // For distances outside the defined ranges, calculate the price per kilometer
@@ -1737,8 +1737,8 @@ const Home = () => {
             <View key={`driver-${index}`} style={styles.item}>
               <Text style={styles.title2}>{driver.source} {'->'}  {driver.destination}</Text>
               <Text style={styles.title2} >Date: {driver.selectedDate}</Text>
-              <Text style={styles.title2} >Email: {driver.email}</Text>
-              <Text style={styles.title2} > {driver.option}</Text>
+              {/* <Text style={styles.title2} >Email: {driver.email}</Text> */}
+              <Text style={styles.title2} > Driving : {driver.option}</Text>
               <Text style={styles.title2}> Distance : {driver.distance}</Text>
               <Text style={styles.title2}> Price : {driver.price}</Text>
             </View>
@@ -1747,8 +1747,8 @@ const Home = () => {
             <View key={`rider-${index}`} style={styles.item}>
               <Text style={styles.title2}>{rider.source} {'->'}  {rider.destination}</Text>
               <Text style={styles.title2}>Date: {rider.selectedDate}</Text>
-              <Text style={styles.title2}>Email: {rider.email}</Text>
-              <Text style={styles.title2}> {rider.option}</Text>
+              {/* <Text style={styles.title2}>Email: {rider.email}</Text> */}
+              <Text style={styles.title2}> Need a Lift {rider.option}</Text>
               <Text style={styles.title2}> Distance : {rider.distance}</Text>
               <Text style={styles.title2}> Price : {rider.price}</Text>
             </View>

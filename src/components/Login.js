@@ -153,7 +153,7 @@ const Login = ({ navigation }) => {
   const colorScheme = useColorScheme();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   // const textColor = colorScheme === 'dark' ? 'white' : 'black';
-  const textColor = colorScheme === 'dark' ? '#000000' : '#000000';
+  
 
   const handleContinue = async () => {
     if (!email || !password) {
@@ -212,6 +212,7 @@ const Login = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Enter your email"
+              placeholderTextColor='black'
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
@@ -222,6 +223,8 @@ const Login = ({ navigation }) => {
               <TextInput
                 style={styles.passwordInput}
                 placeholder="Enter your password"
+              placeholderTextColor='black'
+
                 secureTextEntry={!isPasswordVisible}
                 value={password}
                 onChangeText={(text) => setPassword(text)}
@@ -248,7 +251,7 @@ const Login = ({ navigation }) => {
         </View>
         <View>
           <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
-            <Text style={{ fontFamily: 'Montserrat-SemiBold', justifyContent: 'center', marginTop: 0, }}> Don't have an account? <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', textDecorationLine: 'underline' }}>Sign In</Text></Text>
+            <Text style={{ fontFamily: 'Montserrat-SemiBold', justifyContent: 'center', marginTop: 0,color:'black' }}> Don't have an account? <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', textDecorationLine: 'underline' }}>Sign In</Text></Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -270,21 +273,28 @@ const styles = StyleSheet.create({
     fontSize: 28,
     textAlign: 'center',
     marginVertical: 65,
+    color:'black',
     fontFamily: 'Montserrat-SemiBold',
   },
   sheading: {
+    color:'black',
+
     fontSize: 19,
     textAlign: 'center',
     bottom:30,
     fontFamily: 'Montserrat-Regular',
   },
   textField: {
+    color:'black',
+
     bottom:50,
     marginVertical: 65,
     paddingHorizontal: 30,
     width: '100%',
   },
   label: {
+    color:'black',
+
     fontFamily: 'Montserrat-SemiBold',
     paddingHorizontal: 2,
     letterSpacing:1,
@@ -293,6 +303,8 @@ const styles = StyleSheet.create({
     fontSize:17,
   },
   input: {
+    color:'black',
+
     letterSpacing:2,
     height: 50,
     borderColor: 'gray',
@@ -304,10 +316,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
   },
   passwordContainer: {
+    color:'black',
+
     flexDirection: 'row',
     alignItems: 'center',
   },
   passwordInput: {
+    color:'black',
+
     flex: 1,
     letterSpacing:2,
     height: 50,

@@ -1549,7 +1549,7 @@ const Home = () => {
     navigation.navigate('Payment');
   };
   const handlePrivacy = () => {
-    // navigation.navigate('Privacy');
+    navigation.navigate('Privacy');
   };
   const handleTerms = () => {
     navigation.navigate('Terms');
@@ -1559,7 +1559,7 @@ const Home = () => {
     navigation.navigate('Safety');
   };
   const handleHowto = () => {
-    navigation.navigate('Howtoo');
+    navigation.navigate('Howto');
   };
 
   return (
@@ -1630,7 +1630,8 @@ const Home = () => {
               <Text style={styles.title2}>Source:</Text>
               <GooglePlacesAutocomplete
                 placeholder="Enter source"
-                placeholderTextColor="black"
+                placeholderTextColor='black'
+
                 
                  onPress={(data, details = null) => {
                   console.log("Source data:", data);

@@ -10,7 +10,7 @@ import Sign from './src/components/Sign';
 import Profile from './src/components/Profile';
 import Contact from './src/components/Contact';
 import Trips from './src/components/Trips';
-import Server from './src/components/Server';
+
 import Safety from './src/components/Safety';
 
 import Terms from './src/components/Terms';
@@ -21,6 +21,7 @@ import Getstarted from './src/components/Getstarted';
 import Second from './src/components/Second';
 import Third from './src/components/Third';
 import Fourth from './src/components/Fourth';
+import Privacy from './src/components/Privacy';
 
 
 const Stack = createStackNavigator();
@@ -49,13 +50,14 @@ const App = () => {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Trips" component={Trips} />
-        <Stack.Screen name="Server" component={Server} />
+       
         <Stack.Screen name="Safety" component={Safety} />
        
         <Stack.Screen name="Terms" component={Terms} />
         <Stack.Screen name="Howto" component={Howto} />
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen name="Anywhere" component={Anywhere} />
+        <Stack.Screen name="Privacy" component={Privacy} />
         
       </Stack.Navigator>
     </NavigationContainer>

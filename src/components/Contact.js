@@ -44,7 +44,7 @@ const Contact = () => {
 
   return (
     <View style={styles.container}>
-        <Image source={require('../components/assets/Contactus.jpg')} style={styles.image2} />
+        <Image source={require('../components/assets/Cont.jpg')} style={styles.image2} />
 
       <Text style={[styles.title]}>Contact Us</Text>
       <TextInput
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
 
-    bottom:90,
+    bottom:60,
     // padding: 20,
   },
   title: {

@@ -11,7 +11,7 @@ const GetStarted = ({navigation}) => {
       try {
         const userToken = await AsyncStorage.getItem('userToken');
         if (userToken) {
-          // If user is logged in, navigate to Home
+         
           navigation.navigate('Home');
         }
       } catch (error) {
@@ -21,6 +21,10 @@ const GetStarted = ({navigation}) => {
 
     checkLoginStatus();
   }, [navigation]);
+
+
+
+  
   
   return (
     <>

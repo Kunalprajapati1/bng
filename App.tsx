@@ -22,6 +22,11 @@ import Second from './src/components/Second';
 import Third from './src/components/Third';
 import Fourth from './src/components/Fourth';
 import Privacy from './src/components/Privacy';
+import Header from './src/components/Header';
+import SearchBar from './src/components/SearchBar';
+import TripModal from './src/components/TripModal';
+import TripList from './src/components/TripList';
+import TripItem from './src/components/TripItem';
 
 
 const Stack = createStackNavigator();
@@ -58,6 +63,11 @@ const App = () => {
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen name="Anywhere" component={Anywhere} />
         <Stack.Screen name="Privacy" component={Privacy} />
+        <Stack.Screen name="Header" component={Header} />
+        <Stack.Screen name="SearchBar" component={SearchBar} />
+        <Stack.Screen name="TripModal" component={TripModal} />
+        <Stack.Screen name="TripList" component={TripList} />
+        <Stack.Screen name="TripItem" component={TripItem} />
         
       </Stack.Navigator>
     </NavigationContainer>

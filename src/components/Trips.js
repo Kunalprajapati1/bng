@@ -556,12 +556,13 @@ const Trips = () => {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView contentContainerStyle={styles.scrollView}>
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
 
         {isLoading ? (
           <ActivityIndicator size="large" color={colors.primary} />
         ) : (
           <>
+      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+
             <Text style={[styles.heading, { color: colors.text }]}>My Trips</Text>
             {userTrips.map((trip, index) => (
               <View key={index} style={styles.tripContainer}>

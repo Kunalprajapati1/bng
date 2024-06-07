@@ -44,9 +44,10 @@ const Contact = () => {
 
   return (
     <View style={styles.container}>
-        <Image source={require('../components/assets/360_F_101074212_EymRnOOXLg11KH4M7DOKwfqxx6lwiY6n.jpg')} style={styles.image2} />
+        <Image source={require('../components/assets/Cont.jpg')} style={styles.image2} />
 
-      <Text style={[styles.title]}>Contact Us</Text>
+
+      {/* <Text style={[styles.title]}>Contact Us</Text> */}
       <TextInput
         style={[styles.input, { color: textColor }]}
         placeholder="Your Name *"
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
 
-    bottom:80,
+    bottom:60,
     // padding: 20,
   },
   title: {

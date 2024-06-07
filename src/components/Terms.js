@@ -32,7 +32,7 @@ const TermsOfUse = () => {
             </Paragraph>
           </Card.Content>
         </Card>
-        <Image source={require('../components/assets/review.png')} style={styles.image} />
+        <Image source={require('../components/assets/i.jpg')} style={styles.image} />
 
          {/* User Responsibility */}
          <Text style={styles.sectionTitle}>User Responsibility</Text>

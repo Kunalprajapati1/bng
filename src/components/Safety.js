@@ -23,11 +23,11 @@ const Safety = () => {
         </Card.Content>
       </Card>
 
-      <Image source={require('../components/assets/review.png')} style={styles.image} />
+      {/* <Image source={require('../components/assets/review.png')} style={styles.image} />
 
       <Paragraph style={styles.text}>
         People can leave reviews on CoSeats so make sure you read them. Reviews are a great way to find out more about other people you want to share a ride with so please always leave reviews after you share a ride. The more reviews, the safer CoSeats will be for everyone.
-      </Paragraph>
+      </Paragraph> */}
 
       <Card style={styles.card}>
         <Card.Content>

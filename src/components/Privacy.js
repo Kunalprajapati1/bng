@@ -27,7 +27,7 @@ We use Your Personal data to provide and improve the Service. By using the Servi
  
   The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
   </Text>
-<Image source={require('../components/assets/privacy.jpg')} style={styles.image2} />
+<Image source={require('../components/assets/pri.jpg')} style={styles.image3} />
 
   <Text style={styles.subheading}>Definitions</Text>
   <Text style={styles.paragraph}>
@@ -54,7 +54,7 @@ Account means a unique account created for You to access our Service or parts of
 {"\n"}{"\n"}You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
   </Text>
 </View>
-<Image source={require('../components/assets/privacy.jpg')} style={styles.image2} />
+<Image source={require('../components/assets/pri3.png')} style={styles.image2} />
 
       <View style={styles.section}>
         <Text style={styles.subheading}>Personal Information</Text>
@@ -172,6 +172,13 @@ const styles = StyleSheet.create({
     width: '120%',
     height: 180,
     marginBottom: 20,
+  },
+
+   image3: {
+    width: '120%',
+    height: 180,
+    marginBottom: 20,
+    right:20,
   },
 
 });

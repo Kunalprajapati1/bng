@@ -139,8 +139,238 @@
 
 // export default Login;
 
+
+
+
+// import React, { useState } from 'react';
+// import { View, TextInput, TouchableOpacity, loading,ScrollView,Text, Alert, StyleSheet, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
+// import firebase from '@react-native-firebase/app';
+// import '@react-native-firebase/auth';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { useColorScheme } from 'react-native';
+
+// const Login = ({ navigation }) => {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [isLoading, setIsLoading] = useState(false);
+//   const colorScheme = useColorScheme();
+//   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+//   // const textColor = colorScheme === 'dark' ? 'white' : 'black';
+  
+
+//   const handleContinue = async () => {
+//     if (!email || !password) {
+//       Alert.alert('Error', 'Please fill in all fields');
+//       return;
+//     }
+
+//     try {
+//       setIsLoading(true);
+//       const { user } = await firebase.auth().signInWithEmailAndPassword(email, password);
+      
+//       if (!user.emailVerified) {
+//         Alert.alert('Email Not Verified', 'Please verify your email before logging in.');
+//         setIsLoading(false);
+//         return;
+//       }
+
+//       await AsyncStorage.setItem('userToken', user.uid);
+//       await AsyncStorage.setItem('userEmail', email);
+
+//       navigation.navigate('Home');
+//     } catch (error) {
+//       Alert.alert('Error', 'Incorrect email or password. Please try again.');
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const handleForgotPassword = async () => {
+//     if (!email) {
+//       Alert.alert('Error', 'Please enter your email address');
+//       return;
+//     }
+
+//     try {
+//       await firebase.auth().sendPasswordResetEmail(email);
+//       Alert.alert('Password Reset Email Sent', 'An email with instructions to reset your password has been sent to your email address.');
+//     } catch (error) {
+//       Alert.alert('Error', error.message);
+//     }
+//   };
+
+//   const togglePasswordVisibility = () => {
+//     setIsPasswordVisible(!isPasswordVisible);
+//   };
+//   return (
+//     <ScrollView contentContainerStyle={styles.scrollView}>
+//       <View style={styles.container}>
+//         <Text style={styles.heading}>Log In to Your Account</Text>
+//         <Text style={styles.sheading}>
+//           Thank you for again Re-starting your Journey with us!
+//         </Text>
+//         <View style={styles.textField}>
+//           <View>
+//             <Text style={styles.label}>Email</Text>
+//             <TextInput
+//               style={styles.input}
+//               placeholder="Enter your email"
+//               placeholderTextColor='black'
+//               value={email}
+//               onChangeText={(text) => setEmail(text)}
+//             />
+//           </View>
+//           <View>
+//             <Text style={styles.label}>Password</Text>
+//             <View style={styles.passwordContainer}>
+//               <TextInput
+//                 style={styles.passwordInput}
+//                 placeholder="Enter your password"
+//               placeholderTextColor='black'
+
+//                 secureTextEntry={!isPasswordVisible}
+//                 value={password}
+//                 onChangeText={(text) => setPassword(text)}
+//               />
+//               <TouchableWithoutFeedback onPress={togglePasswordVisibility}>
+//                 <View style={styles.eyeIcon}>
+//                   <Text style={styles.eyeIcon}>{isPasswordVisible ? '👁️' : '👁️‍🗨'}</Text>
+//                 </View>
+//               </TouchableWithoutFeedback>
+//             </View>
+//           </View>
+//           <TouchableOpacity onPress={handleContinue} style={styles.button} disabled={loading}>
+//             {loading ? (
+//               <ActivityIndicator color="white" />
+//             ) : (
+//               <Text style={styles.buttonText}>Login</Text>
+//             )}
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={handleForgotPassword}>
+//             <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', marginTop: 10, textDecorationLine: 'underline', letterSpacing: 1, fontSize: 18 }}>
+//               Forgot Password?
+//             </Text>
+//           </TouchableOpacity>
+//         </View>
+//         <View>
+//           <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
+//             <Text style={{ fontFamily: 'Montserrat-SemiBold', justifyContent: 'center', marginTop: 0,color:'black' }}> Don't have an account? <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', textDecorationLine: 'underline' }}>Sign In</Text></Text>
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//     </ScrollView>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   scrollView: {
+//     flexGrow: 1,
+//   },
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     marginTop: 60,
+//   },
+//   heading: {
+//     textDecorationLine:'underline',
+//     fontSize: 28,
+//     textAlign: 'center',
+//     marginVertical: 65,
+//     color:'black',
+//     fontFamily: 'Montserrat-SemiBold',
+//   },
+//   sheading: {
+//     color:'black',
+
+//     fontSize: 19,
+//     textAlign: 'center',
+//     bottom:30,
+//     fontFamily: 'Montserrat-Regular',
+//   },
+//   textField: {
+//     color:'black',
+
+//     bottom:50,
+//     marginVertical: 65,
+//     paddingHorizontal: 30,
+//     width: '100%',
+//   },
+//   label: {
+//     color:'black',
+
+//     fontFamily: 'Montserrat-SemiBold',
+//     paddingHorizontal: 2,
+//     letterSpacing:1,
+//     marginBottom:20,
+//     textDecorationLine:'underline',
+//     fontSize:17,
+//   },
+//   input: {
+//     color:'black',
+
+//     letterSpacing:2,
+//     height: 50,
+//     borderColor: 'gray',
+//     borderWidth: 1,
+//     width: '100%',
+//     padding: 10,
+//     marginBottom: 16,
+//     borderRadius: 17,
+//     fontFamily: 'Montserrat-Regular',
+//   },
+//   passwordContainer: {
+//     color:'black',
+
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//   },
+//   passwordInput: {
+//     color:'black',
+
+//     flex: 1,
+//     letterSpacing:2,
+//     height: 50,
+//     borderColor: 'gray',
+//     borderWidth: 1,
+//     padding: 10,
+//     marginBottom: 16,
+//     borderRadius: 17,
+//     fontFamily: 'Montserrat-Regular',
+//   },
+//   eyeIcon: {
+//     marginLeft: -17,
+//     marginTop: -10,
+//     fontSize: 22,
+//   },
+//   button: {
+//     backgroundColor: '#fea90a',
+//     paddingVertical: 10,
+//     paddingHorizontal: 30,
+//     width: '100%',
+//     borderRadius: 30,
+//     marginLeft: '0%',
+//     marginTop: 20,
+//     fontFamily: 'Montserrat-Regular',
+//   },
+//   buttonText: {
+//     color: 'white',
+//     letterSpacing:1,
+//     fontSize: 16,
+//     fontWeight: 'bold',
+//     textAlign: 'center',
+//     fontFamily: 'Montserrat-Regular',
+//   },
+// });
+
+
+// export default Login;
+
+
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, loading,ScrollView,Text, Alert, StyleSheet, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
+import {
+  View, TextInput, TouchableOpacity, ScrollView, Text, Alert,
+  StyleSheet, ActivityIndicator, TouchableWithoutFeedback
+} from 'react-native';
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -152,9 +382,7 @@ const Login = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const colorScheme = useColorScheme();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  // const textColor = colorScheme === 'dark' ? 'white' : 'black';
   
-
   const handleContinue = async () => {
     if (!email || !password) {
       Alert.alert('Error', 'Please fill in all fields');
@@ -199,60 +427,64 @@ const Login = ({ navigation }) => {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
+
+  const isDarkMode = colorScheme === 'dark';
+  const textColor = isDarkMode ? 'white' : 'black';
+
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.container}>
-        <Text style={styles.heading}>Log In to Your Account</Text>
-        <Text style={styles.sheading}>
+        <Text style={[styles.heading, { color: textColor }]}>Log In to Your Account</Text>
+        <Text style={[styles.sheading, { color: textColor }]}>
           Thank you for again Re-starting your Journey with us!
         </Text>
         <View style={styles.textField}>
           <View>
-            <Text style={styles.label}>Email</Text>
+            <Text style={[styles.label, { color: textColor }]}>Email</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, { color: textColor, borderColor: isDarkMode ? 'white' : 'gray' }]}
               placeholder="Enter your email"
-              placeholderTextColor='black'
+              placeholderTextColor={textColor}
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
           </View>
           <View>
-            <Text style={styles.label}>Password</Text>
+            <Text style={[styles.label, { color: textColor }]}>Password</Text>
             <View style={styles.passwordContainer}>
               <TextInput
-                style={styles.passwordInput}
+                style={[styles.passwordInput, { color: textColor, borderColor: isDarkMode ? 'white' : 'gray' }]}
                 placeholder="Enter your password"
-              placeholderTextColor='black'
-
+                placeholderTextColor={textColor}
                 secureTextEntry={!isPasswordVisible}
                 value={password}
                 onChangeText={(text) => setPassword(text)}
               />
               <TouchableWithoutFeedback onPress={togglePasswordVisibility}>
                 <View style={styles.eyeIcon}>
-                  <Text style={styles.eyeIcon}>{isPasswordVisible ? '👁️' : '👁️‍🗨'}</Text>
+                  <Text style={styles.eyeIcon}>{isPasswordVisible ? '👁️' : '👁️‍🗨️'}</Text>
                 </View>
               </TouchableWithoutFeedback>
             </View>
           </View>
-          <TouchableOpacity onPress={handleContinue} style={styles.button} disabled={loading}>
-            {loading ? (
+          <TouchableOpacity onPress={handleContinue} style={styles.button} disabled={isLoading}>
+            {isLoading ? (
               <ActivityIndicator color="white" />
             ) : (
               <Text style={styles.buttonText}>Login</Text>
             )}
           </TouchableOpacity>
           <TouchableOpacity onPress={handleForgotPassword}>
-            <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', marginTop: 10, textDecorationLine: 'underline', letterSpacing: 1, fontSize: 18 }}>
-              Forgot Password?
-            </Text>
+            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
-            <Text style={{ fontFamily: 'Montserrat-SemiBold', justifyContent: 'center', marginTop: 0,color:'black' }}> Don't have an account? <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', textDecorationLine: 'underline' }}>Sign In</Text></Text>
-          </TouchableOpacity>
+          <Text style={styles.signInText}>
+            Don't have an account? 
+            <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
+              <Text style={styles.signInLink}> Sign In</Text>
+            </TouchableOpacity>
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -269,45 +501,35 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   heading: {
-    textDecorationLine:'underline',
+    textDecorationLine: 'underline',
     fontSize: 28,
     textAlign: 'center',
     marginVertical: 65,
-    color:'black',
     fontFamily: 'Montserrat-SemiBold',
   },
   sheading: {
-    color:'black',
-
     fontSize: 19,
     textAlign: 'center',
-    bottom:30,
+    bottom: 30,
     fontFamily: 'Montserrat-Regular',
   },
   textField: {
-    color:'black',
-
-    bottom:50,
+    bottom: 50,
     marginVertical: 65,
     paddingHorizontal: 30,
     width: '100%',
   },
   label: {
-    color:'black',
-
     fontFamily: 'Montserrat-SemiBold',
     paddingHorizontal: 2,
-    letterSpacing:1,
-    marginBottom:20,
-    textDecorationLine:'underline',
-    fontSize:17,
+    letterSpacing: 1,
+    marginBottom: 20,
+    textDecorationLine: 'underline',
+    fontSize: 17,
   },
   input: {
-    color:'black',
-
-    letterSpacing:2,
+    letterSpacing: 2,
     height: 50,
-    borderColor: 'gray',
     borderWidth: 1,
     width: '100%',
     padding: 10,
@@ -316,18 +538,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
   },
   passwordContainer: {
-    color:'black',
-
     flexDirection: 'row',
     alignItems: 'center',
   },
   passwordInput: {
-    color:'black',
-
     flex: 1,
-    letterSpacing:2,
+    letterSpacing: 2,
     height: 50,
-    borderColor: 'gray',
     borderWidth: 1,
     padding: 10,
     marginBottom: 16,
@@ -351,13 +568,34 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    letterSpacing:1,
+    letterSpacing: 1,
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
     fontFamily: 'Montserrat-Regular',
   },
+  forgotPasswordText: {
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#fea90a',
+    marginTop: 10,
+    textDecorationLine: 'underline',
+    letterSpacing: 1,
+    fontSize: 18,
+  },
+  signInText: {
+    fontFamily: 'Montserrat-SemiBold',
+    justifyContent: 'center',
+    marginTop: 0,
+   
+    color: 'black'
+  },
+  signInLink: {
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#fea90a',
+    textDecorationLine: 'underline',
+    top:3,
+  }
 });
 
-
 export default Login;
+

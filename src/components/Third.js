@@ -7,7 +7,7 @@ const Third = ({navigation}) => {
     <>
       <View style={styles.parent}>
         <View style={styles.child}>
-        <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Sign')}>
       <Text style={{ color: 'white', justifyContent:'flex-end', marginTop:10, textDecorationLine:'underline', fontFamily:'Montserrat-SemiBold', fontSize:15, paddingLeft:'75%'}}>Skip</Text>
 
         </TouchableOpacity>

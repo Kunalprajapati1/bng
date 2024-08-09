@@ -67,7 +67,7 @@ const GetStarted = ({navigation}) => {
         <View style={styles.overlayContent}>
           <Text style={styles.text}>
             <Text style={styles.blackText}>Welcome to Your</Text>
-            <Text style={styles.orangeText}> ultimate  Solution</Text>
+            <Text style={styles.orangeText}> ultimate Transport Solution</Text>
           </Text>
           <Text style={styles.loremText}>
           Get ready for a seamless and reliable ride experience with our cab app. 

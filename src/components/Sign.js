@@ -472,7 +472,7 @@ const SignUp = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Svg
-        height="120"
+        height="90"
         width="100%"
         viewBox="0 0 1440 320"
         style={styles.topWave}
@@ -542,7 +542,7 @@ const SignUp = () => {
       </TouchableOpacity>
 
       <Svg
-        height="120"
+        height="90"
         width="100%"
         viewBox="0 0 1440 320"
         style={styles.bottomWave}
@@ -561,8 +561,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 20,
-    backgroundColor: '#ffffff', // Set the background color
+    paddingVertical: 0, // Remove any vertical padding
+    backgroundColor: '#ffffff',
   },
   title: {
     fontSize: 24,
@@ -618,12 +618,14 @@ const styles = StyleSheet.create({
   },
   topWave: {
     position: 'absolute',
-    top: -20,
+    top: -3,
+    left: 0,
     width: '100%',
   },
   bottomWave: {
     position: 'absolute',
-    bottom: -20,
+    bottom: 0,
+    left: 0,
     width: '100%',
   },
 });

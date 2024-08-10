@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
     marginLeft: 0,
   },
   dot1: {
-    color: '#fea90a',
+    color: '#01b05f',
     fontSize: 70,
     marginHorizontal: 5,
   },
   dot: {
-    color: '#f5d8a2',
+    color: '#4ca77c',
     fontSize: 40,
     marginHorizontal: 5,
   },
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333',
     marginTop: 5,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
     paddingHorizontal: 18, // Add horizontal padding
     paddingVertical: 0,
   },
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 24,
     textAlign: 'center',
-    fontFamily: 'Montserrat-Bold',
+    fontFamily: 'Poppins-Bold',
     paddingHorizontal: 10, // Add horizontal padding
     paddingVertical: 10,
   },
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#000000',
     marginTop: 30,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
   },
   button1: {
    
@@ -144,21 +144,21 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginLeft: '30%',
     
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
   },
   button: {
-    // backgroundColor: '#fea90a',
+    // backgroundColor: '#01b05f',
    
     width: '30%',
     height: '39%',
     borderRadius: 100,
     marginLeft: '30%',
    bottom:10,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
   },
 
   buttonText1: {
-    color: '#fea90a',
+    color: '#01b05f',
     fontSize: 50,
   
     position:'relative',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonText: {
-    color: '#fea90a',
+    color: '#01b05f',
 
     fontSize: 50,
     marginTop: -3,
@@ -175,16 +175,16 @@ const styles = StyleSheet.create({
   },
   orangeText: {
     alignItems: 'center',
-    color: '#fea90a',
+    color: '#01b05f',
     fontSize: 24,
     textAlign: 'center',
-    fontFamily: 'Montserrat-Bold',
+    fontFamily: 'Poppins-Bold',
     paddingHorizontal: 20, // Add horizontal padding
     paddingVertical: 10,
   },
   orangeText2: {
-    color: '#fea90a',
-    fontFamily: 'Montserrat-BOld',
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
     //  paddingHorizontal: 0, // Add horizontal padding
     // paddingVertical: 10,
   },
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     flex: 1,
     transform: [{scaleX: 0.5}],
 
-    backgroundColor: '#fea90a',
+    backgroundColor: '#01b05f',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // transform : [ { scaleX : 0.9 } ],
     // width:'50%',
-    backgroundColor: '#fea90a',
+    backgroundColor: '#01b05f',
     alignItems: 'center',
     justifyContent: 'center',
   },

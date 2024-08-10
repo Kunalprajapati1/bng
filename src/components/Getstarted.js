@@ -69,12 +69,12 @@ const GetStarted = ({navigation}) => {
             <Text style={styles.blackText}>Welcome to Your</Text>
             <Text style={styles.orangeText}> ultimate Transport Solution</Text>
           </Text>
-          <Text style={styles.loremText}>
+          {/* <Text style={styles.loremText}>
           Get ready for a seamless and reliable ride experience with our cab app. 
-          {/* Whether you're heading to work, meeting friends, or exploring the city, we're here to make your journey comfortable and efficient. Our drivers are dedicated to providing safe and timely transportation, ensuring you arrive at your destination with ease. Enjoy the convenience of hassle-free booking, real-time tracking, and exceptional service. Your journey begins with us! */}
-          </Text>
+           Whether you're heading to work, meeting friends, or exploring the city, we're here to make your journey comfortable and efficient. Our drivers are dedicated to providing safe and timely transportation, ensuring you arrive at your destination with ease. Enjoy the convenience of hassle-free booking, real-time tracking, and exceptional service. Your journey begins with us!   
+          </Text> */}
           
-          <TouchableOpacity onPress={() => navigation.navigate('Second')} style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('Sign')} style={styles.button}>
             <Text style={styles.buttonText}>Get Started</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     flex : 1,
     transform : [ { scaleX : 0.5 } ],
 
-    backgroundColor : '#fea90a',
+    backgroundColor : '#01b05f',
     alignItems : 'center',
     justifyContent : 'center'
 },
@@ -112,20 +112,20 @@ const styles = StyleSheet.create({
   },
   blackText: {
     color: 'black',
-    fontFamily: 'Montserrat-Bold',
+    fontFamily: 'Poppins-Bold',
      paddingHorizontal: 0, // Add horizontal padding
     paddingVertical: 10,
   },
 
   orangeText: {
-    color: '#fea90a',
-    fontFamily: 'Montserrat-Bold',
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
      paddingHorizontal: 0, // Add horizontal padding
     paddingVertical: 10,
   },
   orangeText2: {
-    color: '#fea90a',
-    fontFamily: 'Montserrat-BOld',
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
  
   },
   backgroundImage: {
@@ -154,8 +154,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: '2%',
-    color: '#fea90a',
-    fontFamily: 'Montserrat-Regular',
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
      paddingHorizontal: 10, // Add horizontal padding
     paddingVertical: 0,
   },
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333',
     marginTop: 5,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
     paddingHorizontal: 10, // Add horizontal padding
     paddingVertical: 10,
   },
@@ -205,17 +205,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#000000',
     marginTop: 30,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
   },
   button: {
-    backgroundColor: '#fea90a',
+    backgroundColor: '#01b05f',
     paddingVertical: 15,
     paddingHorizontal: 30,
     width: '80%',
     borderRadius: 30,
     marginLeft: '10%',
     marginTop: 20,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
   },
 
   buttonText: {
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Bold',
   },
 });
 

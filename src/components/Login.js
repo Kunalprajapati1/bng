@@ -247,14 +247,14 @@
 //             )}
 //           </TouchableOpacity>
 //           <TouchableOpacity onPress={handleForgotPassword}>
-//             <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', marginTop: 10, textDecorationLine: 'underline', letterSpacing: 1, fontSize: 18 }}>
+//             <Text style={{ fontFamily: 'Poppins-SemiBold', color: '#01b25f', marginTop: 10, textDecorationLine: 'underline', letterSpacing: 1, fontSize: 18 }}>
 //               Forgot Password?
 //             </Text>
 //           </TouchableOpacity>
 //         </View>
 //         <View>
 //           <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
-//             <Text style={{ fontFamily: 'Montserrat-SemiBold', justifyContent: 'center', marginTop: 0,color:'black' }}> Don't have an account? <Text style={{ fontFamily: 'Montserrat-SemiBold', color: '#fea90a', textDecorationLine: 'underline' }}>Sign In</Text></Text>
+//             <Text style={{ fontFamily: 'Poppins-SemiBold', justifyContent: 'center', marginTop: 0,color:'black' }}> Don't have an account? <Text style={{ fontFamily: 'Poppins-SemiBold', color: '#01b25f', textDecorationLine: 'underline' }}>Sign In</Text></Text>
 //           </TouchableOpacity>
 //         </View>
 //       </View>
@@ -277,7 +277,7 @@
 //     textAlign: 'center',
 //     marginVertical: 65,
 //     color:'black',
-//     fontFamily: 'Montserrat-SemiBold',
+//     fontFamily: 'Poppins-SemiBold',
 //   },
 //   sheading: {
 //     color:'black',
@@ -285,7 +285,7 @@
 //     fontSize: 19,
 //     textAlign: 'center',
 //     bottom:30,
-//     fontFamily: 'Montserrat-Regular',
+//     fontFamily: 'Poppins-Regular',
 //   },
 //   textField: {
 //     color:'black',
@@ -298,7 +298,7 @@
 //   label: {
 //     color:'black',
 
-//     fontFamily: 'Montserrat-SemiBold',
+//     fontFamily: 'Poppins-SemiBold',
 //     paddingHorizontal: 2,
 //     letterSpacing:1,
 //     marginBottom:20,
@@ -316,7 +316,7 @@
 //     padding: 10,
 //     marginBottom: 16,
 //     borderRadius: 17,
-//     fontFamily: 'Montserrat-Regular',
+//     fontFamily: 'Poppins-Regular',
 //   },
 //   passwordContainer: {
 //     color:'black',
@@ -335,7 +335,7 @@
 //     padding: 10,
 //     marginBottom: 16,
 //     borderRadius: 17,
-//     fontFamily: 'Montserrat-Regular',
+//     fontFamily: 'Poppins-Regular',
 //   },
 //   eyeIcon: {
 //     marginLeft: -17,
@@ -343,14 +343,14 @@
 //     fontSize: 22,
 //   },
 //   button: {
-//     backgroundColor: '#fea90a',
+//     backgroundColor: '#01b25f',
 //     paddingVertical: 10,
 //     paddingHorizontal: 30,
 //     width: '100%',
 //     borderRadius: 30,
 //     marginLeft: '0%',
 //     marginTop: 20,
-//     fontFamily: 'Montserrat-Regular',
+//     fontFamily: 'Poppins-Regular',
 //   },
 //   buttonText: {
 //     color: 'white',
@@ -358,7 +358,7 @@
 //     fontSize: 16,
 //     fontWeight: 'bold',
 //     textAlign: 'center',
-//     fontFamily: 'Montserrat-Regular',
+//     fontFamily: 'Poppins-Regular',
 //   },
 // });
 
@@ -402,7 +402,7 @@ const Login = ({ navigation }) => {
       await AsyncStorage.setItem('userToken', user.uid);
       await AsyncStorage.setItem('userEmail', email);
 
-      navigation.navigate('Home');
+      navigation.navigate('TabNavigator');
     } catch (error) {
       Alert.alert('Error', 'Incorrect email or password. Please try again.');
     } finally {
@@ -429,12 +429,12 @@ const Login = ({ navigation }) => {
   };
 
   const isDarkMode = colorScheme === 'dark';
-  const textColor = isDarkMode ? 'white' : 'black';
+  const textColor = isDarkMode ? '#e6f0eb' : '#212121';
 
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.container}>
-        <Text style={[styles.heading, { color: textColor }]}>Log In to Your Account</Text>
+        <Text style={[styles.heading, { color: textColor }]}>Welcome Back!</Text>
         <Text style={[styles.sheading, { color: textColor }]}>
           Thank you for again Re-starting your Journey with us!
         </Text>
@@ -442,7 +442,7 @@ const Login = ({ navigation }) => {
           <View>
             <Text style={[styles.label, { color: textColor }]}>Email</Text>
             <TextInput
-              style={[styles.input, { color: textColor, borderColor: isDarkMode ? 'white' : 'gray' }]}
+              style={[styles.input, { color: textColor, borderColor: isDarkMode ? 'white' : '#01b25f' }]}
               placeholder="Enter your email"
               placeholderTextColor={textColor}
               value={email}
@@ -453,7 +453,7 @@ const Login = ({ navigation }) => {
             <Text style={[styles.label, { color: textColor }]}>Password</Text>
             <View style={styles.passwordContainer}>
               <TextInput
-                style={[styles.passwordInput, { color: textColor, borderColor: isDarkMode ? 'white' : 'gray' }]}
+                style={[styles.passwordInput, { color: textColor, borderColor: isDarkMode ? 'white' : '#01b25f'}]}
                 placeholder="Enter your password"
                 placeholderTextColor={textColor}
                 secureTextEntry={!isPasswordVisible}
@@ -477,14 +477,14 @@ const Login = ({ navigation }) => {
           <TouchableOpacity onPress={handleForgotPassword}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
-        </View>
-        <View>
           <Text style={styles.signInText}>
             Don't have an account? 
             <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
-              <Text style={styles.signInLink}> Sign In</Text>
+              <Text > Sign In</Text>
             </TouchableOpacity>
           </Text>
+        </View>
+        <View>
         </View>
       </View>
     </ScrollView>
@@ -494,48 +494,51 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
   scrollView: {
     flexGrow: 1,
+    backgroundColor:'#e6f0eb'
   },
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'left',
     marginTop: 60,
   },
   heading: {
-    textDecorationLine: 'underline',
+    // textDecorationLine: 'underline',
     fontSize: 28,
-    textAlign: 'center',
-    marginVertical: 65,
-    fontFamily: 'Montserrat-SemiBold',
+    textAlign: 'left',
+    marginTop: 65,bottom: 20,
+    paddingHorizontal:30,
+    fontFamily: 'Poppins-SemiBold',
   },
   sheading: {
     fontSize: 19,
-    textAlign: 'center',
-    bottom: 30,
-    fontFamily: 'Montserrat-Regular',
+    textAlign: 'left',
+    bottom: 20, paddingHorizontal:30,
+    fontFamily: 'Poppins-Regular',
   },
   textField: {
     bottom: 50,
-    marginVertical: 65,
+    marginVertical: 85,
     paddingHorizontal: 30,
+    // marginTop:10,
     width: '100%',
   },
   label: {
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Poppins-SemiBold',
     paddingHorizontal: 2,
-    letterSpacing: 1,
-    marginBottom: 20,
-    textDecorationLine: 'underline',
+    // letterSpacing: 1,
+    marginBottom: 10,
+    // textDecorationLine: 'underline',
     fontSize: 17,
   },
   input: {
-    letterSpacing: 2,
+    // letterSpacing: 2,
     height: 50,
     borderWidth: 1,
     width: '100%',
     padding: 10,
     marginBottom: 16,
-    borderRadius: 17,
-    fontFamily: 'Montserrat-Regular',
+    borderRadius: 7,
+    fontFamily: 'Poppins-Regular',
   },
   passwordContainer: {
     flexDirection: 'row',
@@ -543,13 +546,13 @@ const styles = StyleSheet.create({
   },
   passwordInput: {
     flex: 1,
-    letterSpacing: 2,
+    // letterSpacing: 2,
     height: 50,
     borderWidth: 1,
     padding: 10,
     marginBottom: 16,
-    borderRadius: 17,
-    fontFamily: 'Montserrat-Regular',
+    borderRadius:  7,
+    fontFamily: 'Poppins-Regular',
   },
   eyeIcon: {
     marginLeft: -17,
@@ -557,43 +560,46 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   button: {
-    backgroundColor: '#fea90a',
-    paddingVertical: 10,
+    backgroundColor: '#01b25f',
+    paddingVertical: 12,
     paddingHorizontal: 30,
     width: '100%',
     borderRadius: 30,
     marginLeft: '0%',
-    marginTop: 20,
-    fontFamily: 'Montserrat-Regular',
+    marginTop: 30,
+    fontFamily: 'Poppins-Regular',
   },
   buttonText: {
     color: 'white',
-    letterSpacing: 1,
+    // letterSpacing: 1,
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Poppins-Regular',
   },
   forgotPasswordText: {
-    fontFamily: 'Montserrat-SemiBold',
-    color: '#fea90a',
+    fontFamily: 'Poppins-SemiBold',
+    textAlign: 'center',
+    color: '#01b25f',
     marginTop: 10,
-    textDecorationLine: 'underline',
-    letterSpacing: 1,
+    // textDecorationLine: 'underline',
+    // letterSpacing: 1,
     fontSize: 18,
   },
   signInText: {
-    fontFamily: 'Montserrat-SemiBold',
-    justifyContent: 'center',
-    marginTop: 0,
+    fontFamily: 'Poppins-SemiBold',
+    textAlign: 'center',
+    marginTop: 5,
    
     color: 'black'
   },
   signInLink: {
-    fontFamily: 'Montserrat-SemiBold',
-    color: '#fea90a',
-    textDecorationLine: 'underline',
-    top:3,
+    fontFamily: 'Poppins-SemiBold',
+    color: '#01b25f',
+    // textDecorationLine: 'underline',
+    marginTop:4,
+    marginLeft:3,
+    textAlign: 'right',
   }
 });
 

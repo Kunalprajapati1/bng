@@ -19,9 +19,10 @@ const TripList = ({ data, title }) => {
 
 const styles = StyleSheet.create({
   tripContainer: {
+    // backgroundColor:'#9d00ff',
     flex: 1,
     width: '100%',
-    marginBottom: 10,
+    marginBottom: 10,   top:-10,
   },
   tripTitle: {
     fontSize: 18,
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
   },
   tripListContent: {
     padding: 10,
+    top:0,
   },
 });
 

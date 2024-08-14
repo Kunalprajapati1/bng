@@ -1,4 +1,3 @@
-
 // import React, { useState } from 'react';
 // import { View, Text, StyleSheet, TouchableOpacity, Modal, Linking } from 'react-native';
 // import PropTypes from 'prop-types';
@@ -97,7 +96,7 @@
 //     position: 'absolute',
 //     bottom: 10,
 //     right: 10,
-//     backgroundColor: '#ecc235c9',
+//     backgroundColor: '#2db977',
 //     paddingVertical: 5,
 //     paddingHorizontal: 10,
 //     borderRadius: 5,
@@ -159,12 +158,15 @@
 
 // export default TripItem;
 
-
-
-
-
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Modal, Linking } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  Linking,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
 const truncateText = (text, maxLength) => {
@@ -172,17 +174,27 @@ const truncateText = (text, maxLength) => {
   return text.slice(0, maxLength) + '...';
 };
 
-const TripItem = ({ item }) => {
-  const maxLength = 20;
+const TripItem = ({item}) => {
+  // const maxLength = 20;
   const [connectModalVisible, setConnectModalVisible] = useState(false);
   const [infoModalVisible, setInfoModalVisible] = useState(false);
 
   const handleEmailPress = () => {
     if (item.email) {
       const subject = `Interested in Trip`;
-      const body = `Hi,\n\nI am interested in the following trip:\n\nSource: ${item.source}\nDestination: ${item.destination}\nDate: ${item.selectedDate}\nOption: ${item.option}\nDistance: ${item.distance || 'NA'}\nPrice: ${item.price}\n\nPlease let me know the details.\n\nThanks!`;
+      const body = `Hi,\n\nI am interested in the following trip:\n\nSource: ${
+        item.source
+      }\nDestination: ${item.destination}\nDate: ${
+        item.selectedDate
+      }\nOption: ${item.option}\nDistance: ${item.distance || 'NA'}\nPrice: ${
+        item.price
+      }\n\nPlease let me know the details.\n\nThanks!`;
 
-      Linking.openURL(`mailto:${item.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      Linking.openURL(
+        `mailto:${item.email}?subject=${encodeURIComponent(
+          subject,
+        )}&body=${encodeURIComponent(body)}`,
+      );
     }
   };
 
@@ -202,14 +214,25 @@ const TripItem = ({ item }) => {
 
   return (
     <View style={styles.tripItem}>
+      {/* <Text style={styles.tripText}>
+        {truncateText(item.source)} {' >>> '}{' '}
+        {truncateText(item.destination)}
+      </Text> */}
+      <Text style={styles.labelText}>Source:</Text>
       <Text style={styles.tripText}>
-        {truncateText(item.source, maxLength)} {' >>> '} {truncateText(item.destination, maxLength)}
+        {truncateText(item.source)} 
+      </Text>
+       <Text style={styles.labelText}>Destination: </Text>
+        <Text style={styles.tripText}>
+        {truncateText(item.destination)}
       </Text>
       <Text style={styles.tripText}>Date: {item.selectedDate}</Text>
       <Text style={styles.tripText}>Option: {item.option}</Text>
       {/* <Text style={styles.tripText}>Distance: {item.distance}</Text>
       <Text style={styles.tripText}>Price: {item.price}</Text> */}
-      <TouchableOpacity style={styles.connectButton} onPress={handleConnectPress}>
+      <TouchableOpacity
+        style={styles.connectButton}
+        onPress={handleConnectPress}>
         <Text style={styles.connectButtonText}>Connect</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.infoButton} onPress={handleInfoPress}>
@@ -223,15 +246,32 @@ const TripItem = ({ item }) => {
         visible={connectModalVisible}
         onRequestClose={() => {
           setConnectModalVisible(false);
-        }}
-      >
+        }}>
         <View style={[styles.modalView, styles.bottomModal]}>
           <View style={styles.connectModalContent}>
             <Text style={styles.labelText}>Email:</Text>
-            <Text style={[styles.modalText2, item.email ? styles.blueText : null, styles.underline]} onPress={handleEmailPress}>{item.email || 'NA'}</Text>
+            <Text
+              style={[
+                styles.modalText2,
+                item.email ? styles.blueText : null,
+                styles.underline,
+              ]}
+              onPress={handleEmailPress}>
+              {item.email || 'NA'}
+            </Text>
             <Text style={styles.labelText}>Mobile:</Text>
-            <Text style={[styles.modalText2, item.mobileNumber ? styles.blueText : null, styles.underline]} onPress={handlePhonePress}>{item.mobileNumber || 'NA'}</Text>
-            <TouchableOpacity style={styles.closeButton2} onPress={() => setConnectModalVisible(false)}>
+            <Text
+              style={[
+                styles.modalText2,
+                item.mobileNumber ? styles.blueText : null,
+                styles.underline,
+              ]}
+              onPress={handlePhonePress}>
+              {item.mobileNumber || 'NA'}
+            </Text>
+            <TouchableOpacity
+              style={styles.closeButton2}
+              onPress={() => setConnectModalVisible(false)}>
               <Text style={styles.close}>Close</Text>
             </TouchableOpacity>
           </View>
@@ -245,20 +285,27 @@ const TripItem = ({ item }) => {
         visible={infoModalVisible}
         onRequestClose={() => {
           setInfoModalVisible(false);
-        }}
-      >
+        }}>
         <View style={[styles.modalView, styles.bottomModal]}>
           <View style={styles.infoModalContent}>
             <Text style={styles.labelText}>Name:</Text>
-            <Text style={styles.modalText3}>{item.name}</Text>
-            <Text style={styles.labelText}>Trip Details:</Text>
-            <Text style={styles.modalText}>Source: {item.source}</Text>
-            <Text style={styles.modalText}>Destination: {item.destination}</Text>
-            <Text style={styles.modalText}>Date: {item.selectedDate}</Text>
-            <Text style={styles.modalText}>Option: {item.option}</Text>
-            <Text style={styles.modalText}>Distance: {item.distance || 'NA'}</Text>
-            <Text style={styles.modalText}>Price: {item.price || 'NA'}</Text>
-            <TouchableOpacity style={styles.closeButton} onPress={() => setInfoModalVisible(false)}>
+            <Text style={styles.modalText3}>{item.name || 'Not Mentioned'}</Text>
+            {/* <Text style={styles.labelText}>Trip Details:</Text> */}
+            <Text style={styles.labelText}>Source: </Text>
+            <Text style={styles.modalText}>{item.source || 'Not Mentioned'}</Text>
+            <Text style={styles.labelText}>Destination: </Text>
+            <Text style={styles.modalText}>{item.destination || 'Not Mentioned'}</Text>
+            <Text style={styles.labelText}>Date:</Text>
+            <Text style={styles.modalText}>{item.selectedDate }</Text>
+            <Text style={styles.labelText}>Option:</Text>
+            <Text style={styles.modalText}>{item.option || 'Not Mentioned'}</Text>
+            <Text style={styles.labelText}>Distance:</Text>
+            <Text style={styles.modalText}>{item.distance || 'Not Mentioned'}</Text>
+            <Text style={styles.labelText}>Price: </Text>
+            <Text style={styles.modalText}>{item.price || 'Not Mentioned'}</Text>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setInfoModalVisible(false)}>
               <Text style={styles.close}>Close</Text>
             </TouchableOpacity>
           </View>
@@ -284,24 +331,27 @@ TripItem.propTypes = {
 
 const styles = StyleSheet.create({
   tripItem: {
-    backgroundColor: '#ffffffe4',
+    // backgroundColor: '#b1dbd6',
+    backgroundColor: '#e6f0eb',
     padding: 25,
     borderRadius: 20,
-    marginVertical:5,
+    // marginVertical: 5,
+    top:-10,
     marginBottom: 10,
-    elevation: 3,
+    elevation: 5,
     position: 'relative',
   },
   tripText: {
     fontSize: 16,
-    color: '#333',
+    color: '#525151',
     marginBottom: 5,
+    fontFamily: 'Poppins-Regular',
   },
   connectButton: {
     position: 'absolute',
     bottom: 10,
     right: 10,
-    backgroundColor: '#ecc235c9',
+    backgroundColor: '#2db977',
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
@@ -310,12 +360,14 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textAlign: 'center',
     fontSize: 14,
+    fontFamily: 'Poppins-SemiBold',
+    
   },
   infoButton: {
     position: 'absolute',
     bottom: 10,
-    right: 90,
-    backgroundColor: '#ecc235c9',
+    right: 100,
+    backgroundColor: '#2db977',
 
     paddingVertical: 5,
     paddingHorizontal: 20,
@@ -325,6 +377,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textAlign: 'center',
     fontSize: 14,
+    fontFamily: 'Poppins-SemiBold',
   },
   modalView: {
     flex: 1,
@@ -350,71 +403,67 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   labelText: {
-    color: 'black',
+    color: '#000000',
     fontSize: 18,
-    marginBottom: 5,
-    textDecorationLine: 'underline',
+    fontFamily: 'Poppins-SemiBold',
+    // marginTop:10,
+    // marginBottom: 5,
+    // textDecorationLine: 'underline',
   },
-  
+
   modalText2: {
-       height: 45,
+    fontFamily: 'Poppins-SemiBold',
+    height: 45,
     borderRadius: 30,
-    marginTop: 10,
+    // marginTop: 10,
     fontSize: 18,
-    marginBottom: 10,
+    // marginBottom: 10,
     textAlign: 'center',
     color: '#000',
   },
   modalText: {
     height: 45,
     fontSize: 16,
-    marginBottom: 10,
-    color: '#000',
+    // marginBottom: 1,
+    color: '#01b25f',
+    fontFamily: 'Poppins-SemiBold',
   },
   modalText3: {
-    marginTop:10,
+    // marginTop: 10,
     height: 45,
-    fontSize: 20,
-    alignSelf:'center',
-    marginBottom: 10,
-    color: 'blue',
-    textDecorationLine: 'underline',
-
+    fontSize: 16,
+    // alignSelf:'center',
+    // marginBottom: 1,
+    color: '#01b25f',
+    // textDecorationLine: 'underline',
+    fontFamily: 'Poppins-SemiBold',
   },
   underline: {
     textDecorationLine: 'underline',
   },
   blueText: {
-    color: 'blue',
-},
-close: {
-  color: '#ffffff',
-  fontSize: 24,
-  alignSelf: 'center',
+    color: '#2db977',
+  },
+  close: {
+    color: '#ffffff',
+    fontSize: 20,
+    alignSelf: 'center',
+    marginTop: 5,
+    fontFamily: 'Poppins-Regular',
+  },
+  closeButton: {
+    // marginTop: 70,
+    backgroundColor: '#2db977',
+    borderRadius: 10,
+    height: 40,
+  },
 
-},
-closeButton: {
-  marginTop: 70,
-  backgroundColor: '#ecc235c9',
-  borderRadius: 10,
-  height: 40,
- 
-},
-
-closeButton2: {
+  closeButton2: {
     marginTop: 100,
     backgroundColor: '#d9ac16ff',
     borderRadius: 10,
     height: 40,
-   
   },
 });
 
 export default TripItem;
-
-
-
-
-
-
-

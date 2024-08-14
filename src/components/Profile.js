@@ -1,7 +1,161 @@
 
 
+// import React, { useState, useEffect } from 'react';
+// import { View, Text, StyleSheet, ActivityIndicator, Button, ImageBackground, StatusBar } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import firebase from '@react-native-firebase/app';
+// import '@react-native-firebase/auth';
+// import '@react-native-firebase/firestore';
+// import { useColorScheme } from 'react-native';
+// import { BlurView } from '@react-native-community/blur'
+
+// const Profile = () => {
+//   const navigation = useNavigation();
+//   const [userDetails, setUserDetails] = useState(null);
+//   const colorScheme = useColorScheme();
+
+//   const primaryColor = '#FFEB3B'; // Yellow
+//   const secondaryColor = '#FFFFFF'; // White
+//   const textColor = '#000000'; // Black
+
+//   useEffect(() => {
+//     fetchUserDetails();
+//   }, []);
+
+//   const fetchUserDetails = async () => {
+//     try {
+//       const currentUser = firebase.auth().currentUser;
+//       if (currentUser) {
+//         const userDoc = await firebase.firestore().collection('users').doc(currentUser.uid).get();
+//         if (userDoc.exists) {
+//           setUserDetails(userDoc.data());
+//         } else {
+//           setUserDetails({
+//             email: currentUser.email,
+//             name: currentUser.displayName,
+//             mobileNumber: currentUser.phoneNumber
+//           });
+//         }
+//       }
+//     } catch (error) {
+//       console.error('Error fetching user details:', error);
+//     }
+//   };
+
+//   const handleLogout = async () => {
+//     try {
+//       await AsyncStorage.clear(); // Clear any async data if necessary
+//       await firebase.auth().signOut();
+//       navigation.navigate('TabNavigator'); // Navigate to the Home screen
+//     } catch (error) {
+//       console.error('Error signing out:', error);
+//     }
+//   };
+
+//   if (!userDetails) {
+//     return (
+//       <View style={[styles.loadingContainer, { backgroundColor: primaryColor }]}>
+//         <ActivityIndicator size="large" />
+//       </View>
+//     );
+//   }
+
+//   return (
+//     <>
+//     <StatusBar barStyle="light-content" backgroundColor="#0c544c" />
+//      <ImageBackground
+//       source={{ uri: 'https://i.pinimg.com/564x/34/31/96/343196e4a28ee4d35481294f96e227ad.jpg' }}
+//       style={styles.container}
+//     >
+      
+//   {/* <View style={[styles.container]}> */}
+//   {/* <BlurView
+//         // style={styles.detailsContainer}
+//         blurType="light"
+//         blurAmount={10}
+//         // reducedTransparencyFallbackColor="white"
+//       > */}
+//       <Text style={[styles.title]}>Profile</Text>
+//       <View style={[styles.detailsContainer]}>
+//         <View style={styles.detailItem}>
+//           <Text style={[styles.detailLabel]}>Email:</Text>
+//           <Text style={[styles.detailText]}>{userDetails.email}</Text>
+//         </View>
+//         <View style={styles.detailItem}>
+//           <Text style={[styles.detailLabel]}>Name:</Text>
+//           <Text style={[styles.detailText]}>{userDetails.name}</Text>
+//         </View>
+//         <View style={styles.detailItem}>
+//           <Text style={[styles.detailLabel]}>Mobile Number:</Text>
+//           <Text style={[styles.detailText]}>{userDetails.mobileNumber}</Text>
+//         </View>
+//         <View style={styles.detailItem}>
+//           <Text style={[styles.detailLabel]}>Gender:</Text>
+//           <Text style={[styles.detailText2]}>{userDetails.gender}</Text>
+//         </View>
+//         <View style={styles.buttonContainer}>
+//           <Button title="Logout" onPress={handleLogout}  />
+//         </View>
+//       </View>
+//       {/* </BlurView> */}
+//     {/* </View> */}
+
+
+//     </ImageBackground>
+//     </>
+  
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     padding: 20,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     height:300,
+    
+//   },
+//   title: {
+//     fontSize: 24,
+//    fontFamily: 'Poppins-Bold',
+//     marginBottom: 20,
+//   },
+//   detailsContainer: {
+//     borderWidth: 1,
+//     borderRadius: 10,
+//     padding: 20,
+//     width: '100%',
+//   },
+//   detailItem: {
+//     marginBottom: 15,
+//   },
+//   detailLabel: {
+//     fontSize: 16,
+//    fontFamily: 'Poppins-Bold',
+//     marginRight: 10,
+//   },
+//   detailText: {
+//     fontSize: 16,
+//   },
+//   detailText2: {
+//     fontSize: 18,
+//   },
+//   loadingContainer: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   buttonContainer: {
+//     marginTop: 20,
+//     width: '100%',
+//   },
+// });
+
+// export default Profile;
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Button } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, Button, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firebase from '@react-native-firebase/app';
@@ -46,7 +200,7 @@ const Profile = () => {
     try {
       await AsyncStorage.clear(); // Clear any async data if necessary
       await firebase.auth().signOut();
-      navigation.navigate('Home'); // Navigate to the Home screen
+      navigation.navigate('TabNavigator'); // Navigate to the Home screen
     } catch (error) {
       console.error('Error signing out:', error);
     }
@@ -55,33 +209,46 @@ const Profile = () => {
   if (!userDetails) {
     return (
       <View style={[styles.loadingContainer, { backgroundColor: primaryColor }]}>
-        <ActivityIndicator size="large" color={primaryColor} />
+        <ActivityIndicator size="large" />
       </View>
     );
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: primaryColor }]}>
-      <Text style={[styles.title, { color: textColor }]}>Profile</Text>
-      <View style={[styles.detailsContainer, { backgroundColor: secondaryColor }]}>
-        <View style={styles.detailItem}>
-          <Text style={[styles.detailLabel, { color: textColor }]}>Email:</Text>
-          <Text style={[styles.detailText, { color: textColor }]}>{userDetails.email}</Text>
-        </View>
-        <View style={styles.detailItem}>
-          <Text style={[styles.detailLabel, { color: textColor }]}>Name:</Text>
-          <Text style={[styles.detailText, { color: textColor }]}>{userDetails.name}</Text>
-        </View>
-        <View style={styles.detailItem}>
-          <Text style={[styles.detailLabel, { color: textColor }]}>Mobile Number:</Text>
-          <Text style={[styles.detailText, { color: textColor }]}>{userDetails.mobileNumber}</Text>
-        </View>
-        <View style={styles.detailItem}>
-          <Text style={[styles.detailLabel, { color: textColor }]}>Gender:</Text>
-          <Text style={[styles.detailText2, { color: textColor }]}>{userDetails.gender}</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button title="Logout" onPress={handleLogout}  />
+    <View style={styles.container}>
+      <Image
+        source={{ uri: 'https://i.pinimg.com/564x/34/31/96/343196e4a28ee4d35481294f96e227ad.jpg' }}
+        style={styles.image}
+      />
+      <View style={styles.content}>
+        {/* <Text style={styles.title}>Profile</Text> */}
+        <View style={styles.detailsContainer}>
+          <View style={styles.detailItem}>
+            <Text style={styles.detailLabel}>Email:</Text>
+            <Text style={styles.detailText}>{userDetails.email}</Text>
+          </View>
+          <View style={styles.detailItem}>
+            <Text style={styles.detailLabel}>Name:</Text>
+            <Text style={styles.detailText}>{userDetails.name}</Text>
+          </View>
+          <View style={styles.detailItem}>
+            <Text style={styles.detailLabel}>Mobile Number:</Text>
+            <Text style={styles.detailText}>{userDetails.mobileNumber}</Text>
+          </View>
+          <View style={styles.detailItem}>
+            <Text style={styles.detailLabel}>Gender:</Text>
+            <Text style={styles.detailText2}>{userDetails.gender}</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={handleLogout} style={styles.button}>
+              <Text style={styles.buttonText}>Logout</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={handleLogout} style={styles.button}>
+              <Text style={styles.buttonText}>Delete Account</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
@@ -91,19 +258,31 @@ const Profile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#e6f0eb', // Yellow
+  },
+  image: {
+    width: '100%',
+    height: 300,
+    resizeMode: 'cover',
+  },
+  content: {
+    flex: 1,
     padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#e6f0eb', // White
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    marginTop: -20,
+    elevation: 5, // Optional: for shadow effect
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+   fontFamily: 'Poppins-Bold',
     marginBottom: 20,
   },
   detailsContainer: {
-    borderWidth: 1,
+    // borderWidth: 1,
     borderRadius: 10,
-    padding: 20,
+    // padding: 20,
     width: '100%',
   },
   detailItem: {
@@ -111,7 +290,7 @@ const styles = StyleSheet.create({
   },
   detailLabel: {
     fontSize: 16,
-    fontWeight: 'bold',
+   fontFamily: 'Poppins-Bold',
     marginRight: 10,
   },
   detailText: {
@@ -125,9 +304,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  button: {
+    backgroundColor: '#29070798', // Example button color
+    borderRadius: 25,
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
   buttonContainer: {
     marginTop: 20,
-    width: '100%',
+    // alignItems: 'center', // Centering the button
+  },
+  buttonText: {
+    color: '#FFFFFF', // White text color
+    fontSize: 16,
+    fontFamily: 'Poppins-Bold',
+    textAlign:'center'
   },
 });
 

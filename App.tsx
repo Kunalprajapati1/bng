@@ -79,6 +79,7 @@ import React from 'react';
 import { StatusBar } from 'react-native'; // StatusBar import karein
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/components/Home';
 import Search from './src/components/Search';
 import Menu from './src/components/Menu';
@@ -103,15 +104,37 @@ import TripModal from './src/components/TripModal';
 import TripList from './src/components/TripList';
 import TripItem from './src/components/TripItem';
 import Splash from './src/components/Splash'; //
+import newMenu from './src/components/newmenu';
+import allrides from './src/components/allrides';
+import TabNavigator from './src/components/TabNavigator';
+import Postlookrides from './src/components/Postlookrides';
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+
+// const TabNavigator = () => (
+//   <Tab.Navigator
+//     screenOptions={{
+//       tabBarStyle: { backgroundColor: '#01b05e41' },
+//       headerShown: false,
+//     }}
+//   >
+//     <Tab.Screen name="Home" component={Home} />
+//     <Tab.Screen name="Payment" component={Payment} />
+//     <Tab.Screen name="Trips" component={Trips} />
+//     <Tab.Screen name="Profile" component={Profile} />
+//   </Tab.Navigator>
+// );
 
 const App = () => {
   return (
+    <>
+    
     <NavigationContainer>
       {/* StatusBar component use kar rahe hain */}
       <StatusBar 
         barStyle="light-content" // Text aur icons ko white karega
-        backgroundColor="#01b05f" // Status bar ka background black karega
+        backgroundColor="#01b25f" // Status bar ka background black karega
       />
       <Stack.Navigator
         screenOptions={{
@@ -120,10 +143,14 @@ const App = () => {
       >  
       <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Getstarted" component={Getstarted} />
+        <Stack.Screen name="newMenu" component={newMenu} />
+        <Stack.Screen name="TabNavigator" component={TabNavigator} />
         {/* <Stack.Screen name="Second" component={Second} />
         <Stack.Screen name="Third" component={Third} />
         <Stack.Screen name="Fourth" component={Fourth} /> */}
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="allrides" component={allrides} />
+        <Stack.Screen name="Postlookrides" component={Postlookrides} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Login" component={Login} />
@@ -144,6 +171,7 @@ const App = () => {
         <Stack.Screen name="TripItem" component={TripItem} />
       </Stack.Navigator>
     </NavigationContainer>
+    </>
   );
 };
 

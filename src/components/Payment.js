@@ -782,8 +782,19 @@ const PaymentScreen = () => {
   const subscriptionOptions = [
     { 
       duration: '1 month', 
-      price: 20, 
-      description: 'Billed monthly at $20 per month', 
+      price: 5, 
+      description: 'Billed monthly at $5 per month', 
+      benefits: [
+        'Unlock premium features',
+        'Ad-free experience',
+        'Access to exclusive content',
+        'Priority customer support',
+      ],
+    },
+    { 
+      duration: '3 month', 
+      price: 10, 
+      description: 'Billed monthly at $10 per month', 
       benefits: [
         'Unlock premium features',
         'Ad-free experience',
@@ -793,8 +804,8 @@ const PaymentScreen = () => {
     },
     { 
       duration: '6 months', 
-      price: 110, 
-      description: 'Save $10! Billed every 6 months at $18.33 per month', 
+      price: 25, 
+      description: 'Save $10! Billed every 6 months at $25 per month', 
       benefits: [
         'All monthly subscription benefits',
         'Additional discount on select products',
@@ -804,8 +815,8 @@ const PaymentScreen = () => {
     },
     { 
       duration: '1 year', 
-      price: 200, 
-      description: 'Save $40! Billed annually at $16.67 per month', 
+      price: 45, 
+      description: 'Save $40! Billed annually at $45 per month', 
       benefits: [
         'All 6-month subscription benefits',
         'Free access to all premium content',
@@ -886,8 +897,9 @@ const PaymentScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Unlock Premium Features</Text>
-      <Text style={styles.subtitle}>Upgrade your experience and enjoy exclusive benefits!</Text>
+      {/* <Text style={styles.subtitle}>Upgrade your experience and enjoy exclusive benefits!</Text> */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
+        
         {subscriptionOptions.map((option, index) => (
           <View key={index} style={styles.optionContainer}>
             <TouchableOpacity 
@@ -926,26 +938,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: 20,
+    backgroundColor: '#e6f0eb',
+    padding: 14,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 24,
+    fontFamily: 'Poppins-SemiBold',
     marginBottom: 10,
+    marginTop:20,
   },
   subtitle: {
     fontSize: 16,
     marginBottom: 20,
+    fontFamily: 'Poppins-SemiBold',
   },
   scrollContainer: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
+paddingBottom:50,
   },
   optionContainer: {
     width: '100%',
     marginBottom: 20,
+    
   },
   option: {
     width: '100%',
@@ -953,7 +969,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#6bc7a7',
     position: 'relative',
   },
   selectedOption: {
@@ -962,29 +978,39 @@ const styles = StyleSheet.create({
   },
   optionTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginBottom: 10,
+    color:'#e6f0eb',
+    fontFamily: 'Poppins-SemiBold',
   },
   optionPrice: {
     fontSize: 18,
     marginBottom: 5,
+    color:'#e6f0eb',
+    fontFamily: 'Poppins-SemiBold',
   },
   optionDescription: {
     fontSize: 16,
     marginBottom: 10,
+    color:'#e6f0eb',
+    fontFamily: 'Poppins-SemiBold',
   },
   benefitTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
+    color:'#e6f0eb',
+    // fontWeight: 'bold',
     marginBottom: 5,
+    fontFamily: 'Poppins-SemiBold',
   },
   benefit: {
     fontSize: 14,
     marginLeft: 20,
+    color:'#e6f0eb',
     marginBottom: 5,
+    fontFamily: 'Poppins-Regular',
   },
   paymentButton: {
-    backgroundColor: '#33557a',
+    backgroundColor: '#0f663d',
     paddingVertical: 10,
     paddingHorizontal: 80,
     borderRadius: 5,
@@ -995,7 +1021,8 @@ const styles = StyleSheet.create({
   paymentButtonText: {
     fontSize: 16,
     color: '#fff',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily: 'Poppins-SemiBold',
   },
 });
 

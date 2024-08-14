@@ -404,7 +404,8 @@ import '@react-native-firebase/auth';
 import '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Picker } from '@react-native-picker/picker';
-import Svg, { Path } from 'react-native-svg'; // Import Svg and Path for the wave
+import Svg, { Path } from 'react-native-svg';
+import LinearGradient from 'react-native-linear-gradient';
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -470,89 +471,103 @@ const SignUp = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Svg
-        height="90"
-        width="100%"
-        viewBox="0 0 1440 320"
-        style={styles.topWave}
-      >
-        <Path
-          fill="#01b05f"
-          d="M0,32L80,58.7C160,85,320,139,480,176C640,213,800,235,960,213.3C1120,192,1280,128,1360,96L1440,64V0H1360C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0H0Z"
+    <>
+    {/* <LinearGradient
+      colors={['#a7d7d1','#e6f0eb','#01b05e00', '#01b05e00']} // Gradient colors
+      start={{ x: 0, y: 0 }} // Start from the top-right corner
+      end={{ x: 1, y: 1 }} // End at the bottom-left corner
+      style={styles.gradientBackground}
+    > */}
+      <ScrollView contentContainerStyle={styles.container}>
+      <View style={{ backgroundColor:'#ffff0000' , width:'100%', paddingHorizontal:'10%'}}>
+        <Text style={styles.title}>Welcome!</Text>
+        <Text style={styles.title1}>Let's start the journey of Carpooling </Text>
+
+      </View>
+        {/* Uncomment this section if you want the wave at the top */}
+        {/* <Svg
+          height="120"
+          width="100%"
+          viewBox="0 0 1440 320"
+          style={styles.topWave}
+        >
+          <Path
+            fill="#01b05f"
+            d="M0,32L80,58.7C160,85,320,139,480,176C640,213,800,235,960,213.3C1120,192,1280,128,1360,96L1440,64V0H1360C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0H0Z"
+          />
+        </Svg> */}
+
+        <TextInput
+          style={styles.input}
+          placeholder="Name"
+          placeholderTextColor="black"
+          value={name}
+          onChangeText={setName}
         />
-      </Svg>
-
-      <Text style={styles.title}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Name"
-        placeholderTextColor="black"
-        value={name}
-        onChangeText={setName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="black"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="black"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry={!showPassword}
-      />
-      <TouchableOpacity onPress={handleTogglePasswordVisibility} style={styles.togglePasswordButton}>
-        <Text style={styles.togglePasswordButtonText}>{showPassword ? 'Hide Password' : 'Show Password'}</Text>
-      </TouchableOpacity>
-      <TextInput
-        style={styles.input}
-        placeholder="Mobile Number"
-        placeholderTextColor="black"
-        value={mobileNumber}
-        onChangeText={setMobileNumber}
-        keyboardType="numeric"
-      />
-      <Picker
-        selectedValue={gender}
-        style={styles.input}
-        onValueChange={(itemValue, itemIndex) => setGender(itemValue)}
-      >
-        <Picker.Item label="Select Gender" value="" />
-        <Picker.Item label="Female" value="female" />
-        <Picker.Item label="Male" value="male" />
-        <Picker.Item label="Prefer Not to Say" value="prefer_not_to_say" />
-        <Picker.Item label="Other" value="other" />
-      </Picker>
-
-      <View></View>
-      {loading ? (
-        <ActivityIndicator style={styles.button} size="large" color="white" />
-      ) : (
-        <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          placeholderTextColor="black"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          placeholderTextColor="black"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={!showPassword}
+        />
+        <TouchableOpacity onPress={handleTogglePasswordVisibility} style={styles.togglePasswordButton}>
+          <Text style={styles.togglePasswordButtonText}>{showPassword ? 'Hide Password' : 'Show Password'}</Text>
         </TouchableOpacity>
-      )}
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Text style={styles.buttonText2}>Login</Text>
-      </TouchableOpacity>
-
-      <Svg
-        height="90"
-        width="100%"
-        viewBox="0 0 1440 320"
-        style={styles.bottomWave}
-      >
-        <Path
-          fill="#01b05f"
-          d="M0,288L80,245.3C160,203,320,117,480,101.3C640,85,800,139,960,154.7C1120,171,1280,149,1360,138.7L1440,128V320H1360C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320H0Z"
+        <TextInput
+          style={styles.input}
+          placeholder="Mobile Number"
+          placeholderTextColor="black"
+          value={mobileNumber}
+          onChangeText={setMobileNumber}
+          keyboardType="numeric"
         />
-      </Svg>
-    </ScrollView>
+        <Picker
+          selectedValue={gender}
+          style={styles.input}
+          onValueChange={(itemValue, itemIndex) => setGender(itemValue)}
+        >
+          <Picker.Item label="Select Gender" value="" />
+          <Picker.Item label="Female" value="female" />
+          <Picker.Item label="Male" value="male" />
+          <Picker.Item label="Prefer Not to Say" value="prefer_not_to_say" />
+          <Picker.Item label="Other" value="other" />
+        </Picker>
+
+        {loading ? (
+          <ActivityIndicator style={styles.button} size="large" color="white" />
+        ) : (
+          <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+        )}
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.buttonText2}>Login</Text>
+        </TouchableOpacity>
+
+        {/* Uncomment this section if you want the wave at the bottom */}
+        {/* <Svg
+          height="90"
+          width="100%"
+          viewBox="0 0 1440 320"
+          style={styles.bottomWave}
+        >
+          <Path
+            fill="#01b05f"
+            d="M0,288L80,245.3C160,203,320,117,480,101.3C640,85,800,139,960,154.7C1120,171,1280,149,1360,138.7L1440,128V320H1360C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320H0Z"
+          />
+        </Svg> */}
+      </ScrollView>
+    {/* </LinearGradient> */}
+    </>
   );
 };
 
@@ -561,29 +576,46 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 0, // Remove any vertical padding
-    backgroundColor: '#ffffff',
+    paddingVertical: 0,
+  },
+  container1: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    // alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  gradientBackground: {
+    flex: 1,
+    width: '100%',
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    textAlign: 'left',
+    fontFamily: 'Poppins-SemiBold',
+    // marginBottom: 20,
+    color: '#000',
+  },
+  title1: {
+    fontSize: 19,
+    textAlign: 'left',
+    fontFamily: 'Poppins-Regular',
     marginBottom: 20,
     color: '#000',
   },
   input: {
     height: 50,
-    borderColor: 'gray',
+    borderColor: '#01b25f',
     borderWidth: 1,
     width: '80%',
     paddingHorizontal: 20,
     marginBottom: 23,
-    borderRadius: 27,
+    borderRadius: 7,
     fontFamily: 'Poppins-Regular',
     color: '#000',
   },
   button: {
     backgroundColor: '#01b05f',
-    paddingVertical: 15,
+    paddingVertical: 10,
     paddingHorizontal: 30,
     width: '80%',
     borderRadius: 30,
@@ -618,7 +650,7 @@ const styles = StyleSheet.create({
   },
   topWave: {
     position: 'absolute',
-    top: -3,
+    top: -20,
     left: 0,
     width: '100%',
   },

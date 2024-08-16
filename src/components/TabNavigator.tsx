@@ -7,6 +7,7 @@ import PaymentScreen from './Payment';
 import Trips from './Trips';
 import Profile from './Profile';
 import AllRides from './allrides';
+import Publish from './Publish';
 
 const Tab = createBottomTabNavigator();
 
@@ -100,7 +101,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="allrides"
-        component={AllRides}
+        component={Publish}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image

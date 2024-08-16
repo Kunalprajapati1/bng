@@ -80,6 +80,10 @@ import { StatusBar } from 'react-native'; // StatusBar import karein
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StripeProvider } from '@stripe/stripe-react-native';
+
+
+
 import Home from './src/components/Home';
 import Search from './src/components/Search';
 import Menu from './src/components/Menu';
@@ -108,6 +112,7 @@ import newMenu from './src/components/newmenu';
 import allrides from './src/components/allrides';
 import TabNavigator from './src/components/TabNavigator';
 import Postlookrides from './src/components/Postlookrides';
+import Publish from './src/components/Publish';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -162,6 +167,7 @@ const App = () => {
         <Stack.Screen name="Terms" component={Terms} />
         <Stack.Screen name="Howto" component={Howto} />
         <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="Publish" component={Publish} />
         <Stack.Screen name="Anywhere" component={Anywhere} />
         <Stack.Screen name="Privacy" component={Privacy} />
         <Stack.Screen name="Header" component={Header} />
@@ -169,7 +175,7 @@ const App = () => {
         <Stack.Screen name="TripModal" component={TripModal} />
         <Stack.Screen name="TripList" component={TripList} />
         <Stack.Screen name="TripItem" component={TripItem} />
-      </Stack.Navigator>
+        </Stack.Navigator>
     </NavigationContainer>
     </>
   );

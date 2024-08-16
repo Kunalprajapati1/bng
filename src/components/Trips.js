@@ -836,7 +836,7 @@ const Trips = () => {
                   <Text style={[styles.tripText]}>Trip Details:</Text>
                   <Text style={[styles.tripText]}>Source: {trip.source}</Text>
                   <Text style={[styles.tripText]}>Destination: {trip.destination}</Text>
-                  <Text style={[styles.tripText]}>Date: {trip.selectedDate}</Text>
+                  <Text style={[styles.tripText]}>Date: {trip.selectedDate} {trip.date}</Text>
                   <Text style={[styles.tripText]}>Distance: {trip.distance}</Text>
                   <Text style={[styles.tripText]}>Price: {trip.price}</Text>
                   {moment(trip.selectedDate, 'YYYY-MM-DD').startOf('day').isAfter(moment().startOf('day')) ? (
@@ -871,7 +871,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   image: {
-    width: 340, // Adjust as needed
+    width: 370, // Adjust as needed
     height: 250, // Adjust as needed
     borderBottomRightRadius: 150,
     borderTopRightRadius: 150,
@@ -892,7 +892,7 @@ const styles = StyleSheet.create({
   },
   overlayText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 28,
     fontFamily: 'Poppins-SemiBold',
   },
   container: {
@@ -901,8 +901,10 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding:10,
+
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   heading: {
     fontSize: 24,
@@ -916,18 +918,18 @@ const styles = StyleSheet.create({
     top: 0,
   },
   tripContainer: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     marginBottom: 20,
     padding: 10,
-    borderWidth: 1,
+    borderWidth: 5,
     borderColor: '#706a6a00',
     backgroundColor: '#e7f3f1',
-    borderRadius: 10,
+    borderRadius: 20,
     width: '100%',
   },
   tripText: {
     fontFamily: 'Poppins-SemiBold',
-    fontSize: 16,
+    fontSize: 14,
     marginBottom: 2,
     color: '#000000',
   },

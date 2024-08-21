@@ -1,3 +1,6 @@
+
+
+
 // import React, { useState } from 'react';
 // import { View, Text, StyleSheet, TouchableOpacity, Modal, Linking } from 'react-native';
 // import PropTypes from 'prop-types';
@@ -212,6 +215,11 @@ const TripItem = ({item}) => {
     setConnectModalVisible(true);
   };
 
+  const capitalizeFirstLetter = (text) => {
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
   return (
     <View style={styles.tripItem}>
       {/* <Text style={styles.tripText}>
@@ -226,8 +234,8 @@ const TripItem = ({item}) => {
         <Text style={styles.tripText}>
         {truncateText(item.destination)}
       </Text>
-      <Text style={styles.tripText}>Date: {item.selectedDate}</Text>
-      <Text style={styles.tripText}>Option: {item.option}</Text>
+      <Text style={styles.tripText}>Date: {item.selectedDate}{item.date}</Text>
+      <Text style={styles.tripText}>Option: {capitalizeFirstLetter(item.option)}{capitalizeFirstLetter(item.role)}</Text>
       {/* <Text style={styles.tripText}>Distance: {item.distance}</Text>
       <Text style={styles.tripText}>Price: {item.price}</Text> */}
       <TouchableOpacity
@@ -296,9 +304,9 @@ const TripItem = ({item}) => {
             <Text style={styles.labelText}>Destination: </Text>
             <Text style={styles.modalText}>{item.destination || 'Not Mentioned'}</Text>
             <Text style={styles.labelText}>Date:</Text>
-            <Text style={styles.modalText}>{item.selectedDate }</Text>
+            <Text style={styles.modalText}>{item.selectedDate }{item.date }</Text>
             <Text style={styles.labelText}>Option:</Text>
-            <Text style={styles.modalText}>{item.option || 'Not Mentioned'}</Text>
+            <Text style={styles.modalText}>{capitalizeFirstLetter(item.option)}{capitalizeFirstLetter(item.role)}</Text>
             <Text style={styles.labelText}>Distance:</Text>
             <Text style={styles.modalText}>{item.distance || 'Not Mentioned'}</Text>
             <Text style={styles.labelText}>Price: </Text>

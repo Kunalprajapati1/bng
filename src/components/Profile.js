@@ -1,5 +1,6 @@
 
 
+
 // // // import React, { useState, useEffect } from 'react';
 // // // import { View, Text, StyleSheet, ActivityIndicator, Button, ImageBackground, StatusBar } from 'react-native';
 // // // import { useNavigation } from '@react-navigation/native';
@@ -513,6 +514,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#a11d1db4', // Example button color
     borderRadius: 25,
     paddingVertical: 8,
+    bottom:20,
     paddingHorizontal: 20,
   },
   buttonContainer: {

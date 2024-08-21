@@ -39,10 +39,10 @@ const GetStarted = ({navigation}) => {
         style={styles.backgroundImage}
       />
  
-      <Image
+      {/* <Image
       source={require('../components/assets/placeholder.png')}
       style={styles.Image}
-      />
+      /> */}
       <Image
             source={require('../components/assets/text.png')}
             style={styles.Image2}

@@ -1,3 +1,6 @@
+
+
+
 // import React, { useState, useEffect } from 'react';
 // import { ActivityIndicator,StyleSheet, View, TouchableOpacity, ImageBackground, Text, Modal, TextInput, Dimensions, ScrollView, Alert,BackHandler } from 'react-native';
 // import { Calendar } from 'react-native-calendars';
@@ -914,7 +917,7 @@ const Home = () => {
         <Text style={styles.heading}>Find Your Personalized Destination </Text>
         <TouchableOpacity
           style={styles.searchButton}
-          onPress={handleSearchPress}>
+          onPress={() => navigation.navigate('Search')}>
           <View style={styles.searchBar}>
             {loading ? (
               <ActivityIndicator size="small" color="#ffffff" />

@@ -289,8 +289,8 @@ export default GetStarted;
 //     <>
 //       <StatusBar barStyle="light-content" backgroundColor="#01b25f" />
 //       <ImageBackground
-//         source={{ uri: 'https://i.pinimg.com/564x/c8/77/d9/c877d956a528512dd9bc37d47615bf30.jpg' }}
-//         style={styles.backgroundImage}
+        // source={{ uri: 'https://i.pinimg.com/564x/c8/77/d9/c877d956a528512dd9bc37d47615bf30.jpg' }}
+        // style={styles.backgroundImage}
 //       >
 //         <LinearGradient
 //           colors={['rgba(98, 98, 98, 0.5)', '#e6f0eb']} // gradient colors (black to transparent)
@@ -322,11 +322,11 @@ export default GetStarted;
 // };
 
 // const styles = StyleSheet.create({
-//   backgroundImage: {
-//     flex: 1,
-//     resizeMode: 'cover',
-//     justifyContent: 'center',
-//   },
+  // backgroundImage: {
+  //   flex: 1,
+  //   resizeMode: 'cover',
+  //   justifyContent: 'center',
+  // },
 //   gradient: {
 //     ...StyleSheet.absoluteFillObject,
 //     // Optionally add padding/margins or adjust colors if needed

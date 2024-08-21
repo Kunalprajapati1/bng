@@ -287,13 +287,13 @@
 //     title: {
 //       fontSize: 24,
 //       fontWeight: 'bold',
-//       color: '#391f99',
+//       color: '#437859',
 //       marginBottom: 16,
 //       textAlign: 'center',
 //     },
 //     title2: {
 //       fontSize: 18,
-//       color: '#391f99',
+//       color: '#437859',
 //       marginBottom: 8,
 //     },
 //     inputContainer: {
@@ -326,7 +326,7 @@
 //       elevation: 5,
 //     },
 //     modalInput: {
-//       borderColor: '#391f99',
+//       borderColor: '#437859',
 //       textAlign: 'center',
 //       marginTop: '10%',
 //       height: 50,
@@ -338,7 +338,7 @@
 //     button: {
 //       alignItems: 'center',
 //       marginTop: 16,
-//       backgroundColor: '#391f99',
+//       backgroundColor: '#437859',
 //       paddingVertical: 10,
 //       borderRadius: 50,
 //       bottom:100,
@@ -1024,13 +1024,13 @@
 //   title: {
 //     fontSize: 24,
 //     fontWeight: 'bold',
-//     color: '#391f99',
+//     color: '#437859',
 //     marginBottom: 16,
 //     textAlign: 'center',
 //   },
 //   title2: {
 //     fontSize: 18,
-//     color: '#391f99',
+//     color: '#437859',
 //     marginBottom: 8,
 //   },
 //   inputContainer: {
@@ -1063,7 +1063,7 @@
 //     elevation: 5,
 //   },
 //   modalInput: {
-//     borderColor: '#391f99',
+//     borderColor: '#437859',
 //     textAlign: 'center',
 //     marginTop: '10%',
 //     height: 50,
@@ -1073,7 +1073,7 @@
 //     paddingHorizontal: 8,
 //   },
 //   button: {
-//     backgroundColor: '#391f99',
+//     backgroundColor: '#437859',
 //     padding: 10,
 //     borderRadius: 50,
 //     marginTop: 10,
@@ -1096,14 +1096,14 @@
 //   },
 //   selectedOption: {
     
-//     backgroundColor: '#391f99',
+//     backgroundColor: '#437859',
 //   },
 //   optionText: {
 //     color: '#000',
 //     fontSize: 16,
 //   },
 //   publishButton: {
-//     backgroundColor: '#391f99',
+//     backgroundColor: '#437859',
 //     padding: 16,
 //     borderRadius: 5,
 //     alignItems: 'center',
@@ -1156,7 +1156,8 @@ import {
   View, 
   TouchableOpacity, 
   Modal, 
-  Alert 
+  Alert, 
+  ImageBackground
 } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
@@ -1396,6 +1397,14 @@ const PublishTrip = () => {
   };
 
   return (
+    <>
+   <ImageBackground
+   source={{ uri: 'https://i.pinimg.com/564x/af/6c/18/af6c18d313ead6c7d4597a6e8e45f7fc.jpg' }}
+   style={styles.backgroundImage}
+   >
+
+   
+   
     <View style={styles.container}>
       <View style={styles.featureContainer}>
         <Text style={styles.title}>Publish Trip</Text>
@@ -1419,10 +1428,11 @@ const PublishTrip = () => {
   selectedValue={selectedRole}
   style={styles.picker}
   onValueChange={(itemValue) => setSelectedRole(itemValue)}
+  itemStyle={{ fontFamily: 'Poppins-SemiBold' }}  
 >
   <Picker.Item label="Select Role" value="" />
-  <Picker.Item label="I Am Driver" value="driver" />
-  <Picker.Item label="I Am Companion" value="companion" />
+  <Picker.Item label="I am a Driver" value="driver" />
+  <Picker.Item label="I am a Passenger" value="companion" />
 </Picker>
 
 
@@ -1461,7 +1471,7 @@ const PublishTrip = () => {
                   textInput: styles.modalInput,
                   container: { marginBottom: 16 },
                   description: {
-                    fontFamily: 'Calibri',
+                    fontFamily: 'Poppins-SemiBold',
                     color: 'black',
                     fontSize: 12,
                   },
@@ -1506,7 +1516,7 @@ const PublishTrip = () => {
                   textInput: styles.modalInput,
                   container: { marginBottom: 16 },
                   description: {
-                    fontFamily: 'Calibri',
+                    fontFamily: 'Poppins-SemiBold',
                     color: 'black',
                     fontSize: 12,
                   },
@@ -1563,36 +1573,48 @@ const PublishTrip = () => {
           </View>
         </Modal> */}
       </View>
-    </View>
+    </View></ImageBackground>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   featureContainer: {
-    marginTop: '40%',
-    backgroundColor: '#fff',
+    // marginTop: '40%',
+    backgroundColor: '#ffffffe9',
     borderRadius: 10,
-    elevation: 3,
+    elevation: 35,
     marginBottom: 20,
     padding: 15,
     width: '100%',
     maxWidth: 350,
+    
   },
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: '#f8f8f8',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: '#f8f8f8',
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#391f99',
+    // fontWeight: 'bold',
+    color: '#437859',
     marginBottom: 16,
     textAlign: 'center',
+    fontFamily: 'Poppins-SemiBold',
   },
   title2: {
     fontSize: 18,
-    color: '#391f99',
+
+    fontFamily: 'Poppins-SemiBold',
+    color: '#437859',
     marginBottom: 8,
   },
   inputContainer: {
@@ -1604,10 +1626,12 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     color: '#000',
+    fontFamily: 'Poppins-SemiBold',
   },
   input: {
     fontSize: 16,
     color: '#666',
+    fontFamily: 'Poppins-SemiBold',
   },
   modalBackground: {
     flex: 1,
@@ -1625,7 +1649,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalInput: {
-    borderColor: '#391f99',
+    borderColor: '#437859',
    
     marginTop: '10%',
     height: 50,
@@ -1635,7 +1659,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   button: {
-    backgroundColor: '#391f99',
+    backgroundColor: '#437859',
     padding: 10,
     borderRadius: 50,
     marginTop: 10,
@@ -1658,14 +1682,14 @@ const styles = StyleSheet.create({
   },
   selectedOption: {
     
-    backgroundColor: '#391f99',
+    backgroundColor: '#437859',
   },
   optionText: {
     color: '#000',
     fontSize: 16,
   },
   publishButton: {
-    backgroundColor: '#391f99',
+    backgroundColor: '#437859',
     padding: 16,
     borderRadius: 5,
     alignItems: 'center',

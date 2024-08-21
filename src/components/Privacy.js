@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ScrollView,Image } from 'react-native';
 const Privacy = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Image source={require('../components/assets/privacy.jpg')} style={styles.image2} />
+      <Image source={{uri:'https://i.pinimg.com/564x/bc/36/8b/bc368b9bd2f4013cbafdc55f3dd46c11.jpg'}} style={styles.image2} />
 
       <Text style={styles.heading}>Privacy Policy</Text>
 
@@ -27,7 +27,7 @@ We use Your Personal data to provide and improve the Service. By using the Servi
  
   The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
   </Text>
-<Image source={require('../components/assets/pri.jpg')} style={styles.image3} />
+<Image source={{uri:'https://i.pinimg.com/564x/1c/7d/2f/1c7d2fbeea7ede56294e5a3b933f9638.jpg'}} style={styles.image3} />
 
   <Text style={styles.subheading}>Definitions</Text>
   <Text style={styles.paragraph}>
@@ -54,7 +54,7 @@ Account means a unique account created for You to access our Service or parts of
 {"\n"}{"\n"}You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
   </Text>
 </View>
-<Image source={require('../components/assets/pri3.png')} style={styles.image2} />
+<Image source={{uri:'https://i.pinimg.com/564x/f5/e6/aa/f5e6aa12148d363e963fc1f862c5ebec.jpg'}} style={styles.image2} />
 
       <View style={styles.section}>
         <Text style={styles.subheading}>Personal Information</Text>
@@ -138,9 +138,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
 
     fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#000',
+    // fontWeight: 'bold',
+    // marginBottom: 20,
+    color: '#2db977',
+    fontFamily: 'Poppins-SemiBold',
   },
   section: {
     marginBottom: 30,
@@ -155,27 +156,30 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: '#000',
+    fontFamily: 'Poppins-Regular',
   },
   subheading: {
     fontSize: 20,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginBottom: 10,
     color: '#333',
+    fontFamily: 'Poppins-SemiBold',
   },
   paragraph: {
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 20,
     color: '#000',
+    fontFamily: 'Poppins-Regular',
   },
   image2: {
-    width: '120%',
-    height: 180,
+    width: '100%',
+    height: 250,
     marginBottom: 20,
   },
 
    image3: {
-    width: '120%',
+    width: '110%',
     height: 180,
     marginBottom: 20,
     right:20,

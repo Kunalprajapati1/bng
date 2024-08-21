@@ -858,7 +858,7 @@ const Home = () => {
         barStyle="light-content" // Text aur icons ko white karega
         backgroundColor="#14ac68" // Status bar ka background black karega
       />
-      <ScrollView>
+      {/* <ScrollView> */}
         {/* <Image
         source={{ uri: 'https://i.pinimg.com/736x/5f/47/f6/5f47f6e5b748b2afd36a9345b697b7dd.jpg' }}
         style={styles.Image4}
@@ -874,7 +874,7 @@ const Home = () => {
             }}>
             <View style={styles.logo}>
               <Image
-                source={require('../components/assets/ww.png')}
+                source={require('../components/assets/wrr.png')}
                 style={styles.logoImage} // Apply the style here
               />
             </View>
@@ -923,7 +923,7 @@ const Home = () => {
             )}
           </View>
         </TouchableOpacity>
-        <CardList />
+        {/* <CardList /> */}
         <View
           style={[
             styles.container,
@@ -998,17 +998,17 @@ main part of code
             handleCloseModal={handleCloseModal}
           />
 
-          {/* <ScrollView style={styles.scrollView}>
+           <ScrollView style={styles.scrollView}>
           <TripList data={driverData} />
           <TripList data={riderData} />
-        </ScrollView> */}
+        </ScrollView>  
 
           {/* </View> */}
           {/* </ImageBackground> */}
         </View>
         {/* <Postlookrides/> */}
       {/* <Howto/> */}
-      </ScrollView>
+      {/* </ScrollView> */}
     </>
   );
 };
@@ -1025,8 +1025,8 @@ const styles = StyleSheet.create({
   },
   logoImage: {
     marginTop: 100,
-    width: 180, // Adjust the size as needed
-    height: 180, // Adjust the size as needed
+    width: 140, // Adjust the size as needed
+    height: 140, // Adjust the size as needed
   },
   imageContainer: {
     // backgroundColor:'blue',

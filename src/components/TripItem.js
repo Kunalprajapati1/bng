@@ -254,7 +254,7 @@ const TripItem = ({item}) => {
               style={[
                 styles.modalText2,
                 item.email ? styles.blueText : null,
-                styles.underline,
+                // styles.underline,
               ]}
               onPress={handleEmailPress}>
               {item.email || 'NA'}
@@ -264,7 +264,7 @@ const TripItem = ({item}) => {
               style={[
                 styles.modalText2,
                 item.mobileNumber ? styles.blueText : null,
-                styles.underline,
+                // styles.underline,
               ]}
               onPress={handlePhonePress}>
               {item.mobileNumber || 'NA'}
@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
     margin: 0, // avoid default margin
   },
   connectModalContent: {
-    height: '50%',
+    height: '30%',
     backgroundColor: '#FFF',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -418,7 +418,7 @@ const styles = StyleSheet.create({
     // marginTop: 10,
     fontSize: 18,
     // marginBottom: 10,
-    textAlign: 'center',
+    textAlign: 'left',
     color: '#000',
   },
   modalText: {
@@ -459,8 +459,9 @@ const styles = StyleSheet.create({
   },
 
   closeButton2: {
-    marginTop: 100,
-    backgroundColor: '#d9ac16ff',
+    // marginTop: 20,
+
+    backgroundColor: '#2db977',
     borderRadius: 10,
     height: 40,
   },

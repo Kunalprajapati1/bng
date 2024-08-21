@@ -477,12 +477,12 @@ const Login = ({ navigation }) => {
           <TouchableOpacity onPress={handleForgotPassword}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
-          <Text style={styles.signInText}>
-            Don't have an account? 
+      
             <TouchableOpacity onPress={() => { navigation.navigate('Sign') }}>
-              <Text > Sign In</Text>
+              <Text style={styles.signInText}>
+              Don't have an account? Sign In</Text>
             </TouchableOpacity>
-          </Text>
+          
         </View>
         <View>
         </View>
@@ -509,6 +509,7 @@ const styles = StyleSheet.create({
     paddingHorizontal:30,
     fontFamily: 'Poppins-SemiBold',
   },
+  
   sheading: {
     fontSize: 19,
     textAlign: 'left',

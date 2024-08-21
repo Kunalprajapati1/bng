@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, ScrollView, Image,TouchableOpacity
  } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import CardList from './Card';
 const Howto = () => {
   const navigation = useNavigation(); // Initialize navigation
 
@@ -11,9 +12,11 @@ const Howto = () => {
     navigation.navigate(pageName); // Navigate to the specified page
   };
   return (
+    <>
+    <Text style={styles.title}>How to use the Book-n-Go Application</Text>
     <ScrollView contentContainerStyle={styles.container}>
-      <Image source={require('../components/assets/car.jpg')} style={styles.headerImage} />
-      <Text style={styles.title}>How to...</Text>
+      {/* <Image source={require('../components/assets/car.jpg')} style={styles.headerImage} /> */}
+      <CardList/>
 
       <Card style={styles.card}>
         <Card.Content>
@@ -34,7 +37,7 @@ const Howto = () => {
         </TouchableOpacity>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/offer.jpg')} style={styles.image} />
+      <Image source={{uri:'https://i.pinimg.com/564x/bc/0d/d2/bc0dd24053e173e1784de06a96e45afb.jpg'}} style={styles.image} />
 
       <Card style={styles.card}>
         <Card.Content>
@@ -48,7 +51,7 @@ const Howto = () => {
           </Paragraph>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/Contact.png')} style={styles.image} />
+      <Image source={{uri:'https://i.pinimg.com/564x/ff/4c/b2/ff4cb246f26569476ce6900fad634e43.jpg'}} style={styles.image} />
 
       <Card style={styles.card}>
         <Card.Content>
@@ -73,7 +76,7 @@ const Howto = () => {
         </TouchableOpacity>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+      <Image source={{uri:'https://i.pinimg.com/564x/2d/f8/af/2df8af4ca905da9fedda88a12f8ba2ba.jpg'}} style={styles.image2} />
 
 
 
@@ -98,7 +101,7 @@ const Howto = () => {
         </TouchableOpacity>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+      <Image source={{uri:'https://i.pinimg.com/564x/8e/8b/a2/8e8ba2787a745e267fe1468aa80d78a2.jpg'}} style={styles.image2} />
 
 
 
@@ -123,7 +126,7 @@ const Howto = () => {
         </TouchableOpacity>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+      <Image source={{uri:'https://i.pinimg.com/564x/6e/6e/c6/6e6ec6f790809fa9d755f135c7adcdde.jpg'}} style={styles.image2} />
 
 
 
@@ -141,7 +144,7 @@ const Howto = () => {
           </Paragraph>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+      <Image source={{uri:'https://i.pinimg.com/564x/50/a4/2c/50a42c0a969d3d5a6cc04e12ce1b4dd0.jpg'}} style={styles.image2} />
 
 
 
@@ -156,10 +159,10 @@ const Howto = () => {
         </TouchableOpacity>
         </Card.Content>
       </Card>
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+      {/* <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} /> */}
 
 
-    </ScrollView>
+    </ScrollView></>
   );
 };
 
@@ -168,7 +171,7 @@ export default Howto;
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#e6f0eb',
   },
   headerImage: {
     width: '100%',
@@ -177,11 +180,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     textAlign: 'center',
     color: '#333',
     marginTop: 20,
     marginBottom: 10,
+    fontFamily: 'Poppins-SemiBold',
   },
   card: {
     marginBottom: 20,
@@ -191,14 +195,16 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   cardTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 19,
+    // fontWeight: 'bold',
     color: '#333',
+    fontFamily: 'Poppins-SemiBold',
   },
   cardText: {
     fontSize: 16,
     color: '#333',
     lineHeight: 30,
+    fontFamily: 'Poppins-Regular',
   },
   instructions: {
     fontSize: 14,
@@ -206,30 +212,32 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 20,
     paddingHorizontal: 20,
+    fontFamily: 'Poppins-SemiBold',
   },
   image: {
     width: '100%',
-    height: 200,
-    borderWidth: 2,
+    height: 300,
+    // borderWidth: 2,
     borderColor: '#000000',
     marginBottom: 20,
   },
   image2: {
     width: '100%',
-    height: 200,
+    height: 300,
     marginBottom: 20,
   },
 
   button: {
-    backgroundColor: '#e5dc2e89',
+    backgroundColor: '#2db977',
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 55,
     alignItems: 'center',
     marginTop: 10,
   },
   buttonText: {
-    color: '#000000',
+    color: '#e6f0eb',
     fontSize: 16,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily: 'Poppins-SemiBold',
   },
 });

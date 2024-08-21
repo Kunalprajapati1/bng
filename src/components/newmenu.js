@@ -150,7 +150,8 @@ import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradi
 
 // Menu data
 const menuList = [
-  { id: 3, name: 'My Trips', image: 'https://i.pinimg.com/564x/fa/41/d1/fa41d199e9be453fe1f0dc103e4c615f.jpg' },
+  { id: 3, name: 'My Trips', image: 'https://i.pinimg.com/564x/22/69/13/226913b15bd799765b7def4e567d9863.jpg' },
+  { id: 11, name: 'All Rides', image: 'https://i.pinimg.com/564x/7c/e3/ac/7ce3acee9e190a9c8344d8257a9bc404.jpg' },
   { id: 4, name: 'Profile', image: 'https://i.pinimg.com/564x/48/6c/a0/486ca00640b169300b48e9ceacd8e401.jpg' },
   { id: 5, name: 'Contact Us', image: 'https://i.pinimg.com/564x/dd/78/da/dd78da42ac00ebe3bed3ad153a1e7be4.jpg' },
   { id: 6, name: 'Payment', image: 'https://i.pinimg.com/564x/f6/09/41/f6094121ae8689a84eebb990d664440a.jpg' },
@@ -158,7 +159,6 @@ const menuList = [
   { id: 8, name: 'Privacy Policy', image: 'https://i.pinimg.com/564x/42/b7/a5/42b7a5f4e5ce64aaba021bfe66cb2f8c.jpg' },
   { id: 9, name: 'Terms Of Use', image: 'https://i.pinimg.com/564x/12/af/3e/12af3e657464a4a98331974b9259add1.jpg' },
   { id: 10, name: 'How to ?', image: 'https://i.pinimg.com/564x/67/a1/3e/67a13e6745ab80e753908f7bad391f79.jpg' },
-  { id: 11, name: 'Logout', image: 'https://images.unsplash.com/photo-1616878443139-8c68afd6b5c0?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 ];
 
 const NewMenu = ({ navigation }) => {
@@ -216,8 +216,8 @@ const NewMenu = ({ navigation }) => {
           case 'How to ?':
             navigation.navigate('Howto');
             break;
-          case 'Logout':
-            handleLogout();
+          case 'All Rides':
+            navigation.navigate('allrides');
             break;
           default:
             break;
@@ -229,7 +229,7 @@ const NewMenu = ({ navigation }) => {
         style={styles.overlayImage}
       />
       <LinearGradient
-        colors={['#6bc7a797', '#0000004f']} // Adjust the gradient colors as needed
+        colors={['#6bc7a762', '#00000005']} // Adjust the gradient colors as needed
         style={styles.gradientOverlay}
       />
       <Text style={styles.menuItemText}>{item.name}</Text>
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
   closeButtonContainer: {
     alignItems: 'flex-start',
     padding: 20,
-    backgroundColor: '#00000000',
+    // backgroundColor: '#00000000',
   },
   cross: {
     width: 20,
@@ -267,14 +267,14 @@ const styles = StyleSheet.create({
   menuContainer: {
     flexGrow: 1,
     justifyContent: 'center',
-    backgroundColor: '#00000000',
+    // backgroundColor: '#00000000',
   },
   menuItemBox: {
     flex: 1,
     width: '48%', // Adjust to fit 2 items per row with some margin
     height: 150,
     borderRadius: 15,
-    backgroundColor: '#000000',
+    backgroundColor: '#000000ff',
     margin: '1%',
     justifyContent: 'center',
     alignItems: 'center',

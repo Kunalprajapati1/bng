@@ -5,38 +5,38 @@
 // //   const [selectedOption, setSelectedOption] = useState(null);
 
 // //   const subscriptionOptions = [
-// //     { 
-// //       duration: '1 month', 
-// //       price: 20, 
-// //       description: 'Billed monthly at $20 per month', 
+// //     {
+// //       duration: '1 month',
+// //       price: 20,
+// //       description: 'Billed monthly at $20 per month',
 // //       benefits: [
 // //         'Unlock premium features',
 // //         'Ad-free experience',
 // //         'Access to exclusive content',
 // //         'Priority customer support',
-// //       ] 
+// //       ]
 // //     },
-// //     { 
-// //       duration: '6 months', 
-// //       price: 110, 
-// //       description: 'Save $10! Billed every 6 months at $18.33 per month', 
+// //     {
+// //       duration: '6 months',
+// //       price: 110,
+// //       description: 'Save $10! Billed every 6 months at $18.33 per month',
 // //       benefits: [
 // //         'All monthly subscription benefits',
 // //         'Additional discount on select products',
 // //         'Extended access to premium content',
 // //         'Exclusive monthly giveaways',
-// //       ] 
+// //       ]
 // //     },
-// //     { 
-// //       duration: '1 year', 
-// //       price: 200, 
-// //       description: 'Save $40! Billed annually at $16.67 per month', 
+// //     {
+// //       duration: '1 year',
+// //       price: 200,
+// //       description: 'Save $40! Billed annually at $16.67 per month',
 // //       benefits: [
 // //         'All 6-month subscription benefits',
 // //         'Free access to all premium content',
 // //         'VIP access to events and webinars',
 // //         'Annual personalized gift',
-// //       ] 
+// //       ]
 // //     },
 // //   ];
 
@@ -57,7 +57,7 @@
 // //       <ScrollView contentContainerStyle={styles.scrollContainer}>
 // //         {subscriptionOptions.map((option, index) => (
 // //           <View key={index} style={styles.optionContainer}>
-// //             <TouchableOpacity 
+// //             <TouchableOpacity
 // //               style={[
 // //                 styles.option,
 // //                 selectedOption === index && styles.selectedOption
@@ -175,7 +175,6 @@
 
 // // export default Payment;
 
-
 // // import React, { useState } from 'react';
 // // import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Linking } from 'react-native';
 
@@ -183,10 +182,10 @@
 // //   const [selectedOption, setSelectedOption] = useState(null);
 
 // //   const subscriptionOptions = [
-// //     { 
-// //       duration: '1 month', 
-// //       price: 20, 
-// //       description: 'Billed monthly at $20 per month', 
+// //     {
+// //       duration: '1 month',
+// //       price: 20,
+// //       description: 'Billed monthly at $20 per month',
 // //       benefits: [
 // //         'Unlock premium features',
 // //         'Ad-free experience',
@@ -195,10 +194,10 @@
 // //       ],
 // //       paymentURL: "https://buy.stripe.com/test_7sI9CMet342y8BqbII"
 // //     },
-// //     { 
-// //       duration: '6 months', 
-// //       price: 110, 
-// //       description: 'Save $10! Billed every 6 months at $18.33 per month', 
+// //     {
+// //       duration: '6 months',
+// //       price: 110,
+// //       description: 'Save $10! Billed every 6 months at $18.33 per month',
 // //       benefits: [
 // //         'All monthly subscription benefits',
 // //         'Additional discount on select products',
@@ -207,10 +206,10 @@
 // //       ],
 // //       paymentURL: "https://buy.stripe.com/test_abcxyz123"
 // //     },
-// //     { 
-// //       duration: '1 year', 
-// //       price: 200, 
-// //       description: 'Save $40! Billed annually at $16.67 per month', 
+// //     {
+// //       duration: '1 year',
+// //       price: 200,
+// //       description: 'Save $40! Billed annually at $16.67 per month',
 // //       benefits: [
 // //         'All 6-month subscription benefits',
 // //         'Free access to all premium content',
@@ -237,7 +236,7 @@
 // //       <ScrollView contentContainerStyle={styles.scrollContainer}>
 // //         {subscriptionOptions.map((option, index) => (
 // //           <View key={index} style={styles.optionContainer}>
-// //             <TouchableOpacity 
+// //             <TouchableOpacity
 // //               style={[
 // //                 styles.option,
 // //                 selectedOption === index && styles.selectedOption
@@ -254,8 +253,8 @@
 // //                 ))}
 // //               </View>
 // //               {selectedOption === index && (
-// //                 <TouchableOpacity 
-// //                   style={styles.paymentButton} 
+// //                 <TouchableOpacity
+// //                   style={styles.paymentButton}
 // //                   onPress={() => handlePayment(option.paymentURL)}>
 // //                   <Text style={styles.paymentButtonText}>Pay Now</Text>
 // //                 </TouchableOpacity>
@@ -357,9 +356,6 @@
 
 // // export default Payment;
 
-
-
-
 // // import React, { useState } from 'react';
 // // import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Linking } from 'react-native';
 // // import firestore from '@react-native-firebase/firestore'; // Import Firestore
@@ -368,10 +364,10 @@
 // //   const [selectedOption, setSelectedOption] = useState(null);
 
 // //   const subscriptionOptions = [
-// //     { 
-// //       duration: '1 month', 
-// //       price: 20, 
-// //       description: 'Billed monthly at $20 per month', 
+// //     {
+// //       duration: '1 month',
+// //       price: 20,
+// //       description: 'Billed monthly at $20 per month',
 // //       benefits: [
 // //         'Unlock premium features',
 // //         'Ad-free experience',
@@ -380,10 +376,10 @@
 // //       ],
 // //       paymentURL: "https://buy.stripe.com/test_7sI9CMet342y8BqbII"
 // //     },
-// //     { 
-// //       duration: '6 months', 
-// //       price: 110, 
-// //       description: 'Save $10! Billed every 6 months at $18.33 per month', 
+// //     {
+// //       duration: '6 months',
+// //       price: 110,
+// //       description: 'Save $10! Billed every 6 months at $18.33 per month',
 // //       benefits: [
 // //         'All monthly subscription benefits',
 // //         'Additional discount on select products',
@@ -392,10 +388,10 @@
 // //       ],
 // //       paymentURL: "https://buy.stripe.com/test_abcxyz123"
 // //     },
-// //     { 
-// //       duration: '1 year', 
-// //       price: 200, 
-// //       description: 'Save $40! Billed annually at $16.67 per month', 
+// //     {
+// //       duration: '1 year',
+// //       price: 200,
+// //       description: 'Save $40! Billed annually at $16.67 per month',
 // //       benefits: [
 // //         'All 6-month subscription benefits',
 // //         'Free access to all premium content',
@@ -439,7 +435,7 @@
 // //       <ScrollView contentContainerStyle={styles.scrollContainer}>
 // //         {subscriptionOptions.map((option, index) => (
 // //           <View key={index} style={styles.optionContainer}>
-// //             <TouchableOpacity 
+// //             <TouchableOpacity
 // //               style={[
 // //                 styles.option,
 // //                 selectedOption === index && styles.selectedOption
@@ -456,8 +452,8 @@
 // //                 ))}
 // //               </View>
 // //               {selectedOption === index && (
-// //                 <TouchableOpacity 
-// //                   style={styles.paymentButton} 
+// //                 <TouchableOpacity
+// //                   style={styles.paymentButton}
 // //                   onPress={() => handlePayment(option.paymentURL)}>
 // //                   <Text style={styles.paymentButtonText}>Pay Now</Text>
 // //                 </TouchableOpacity>
@@ -559,7 +555,6 @@
 
 // // export default Payment;
 
-
 // // import React, { useState } from 'react';
 // // import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Linking } from 'react-native';
 // // import firestore from '@react-native-firebase/firestore';
@@ -568,13 +563,11 @@
 // // const Payment = () => {
 // //   const [selectedOption, setSelectedOption] = useState(null);
 
-
-
 // //   const subscriptionOptions = [
-// //     { 
-// //       duration: '1 month', 
-// //       price: 20, 
-// //       description: 'Billed monthly at $20 per month', 
+// //     {
+// //       duration: '1 month',
+// //       price: 20,
+// //       description: 'Billed monthly at $20 per month',
 // //       benefits: [
 // //         'Unlock premium features',
 // //         'Ad-free experience',
@@ -583,10 +576,10 @@
 // //       ],
 // //       paymentMethods: ["card", "gpay", "applepay"] // Payment methods, e.g., card, gpay, applepay
 // //     },
-// //     { 
-// //       duration: '6 months', 
-// //       price: 110, 
-// //       description: 'Save $10! Billed every 6 months at $18.33 per month', 
+// //     {
+// //       duration: '6 months',
+// //       price: 110,
+// //       description: 'Save $10! Billed every 6 months at $18.33 per month',
 // //       benefits: [
 // //         'All monthly subscription benefits',
 // //         'Additional discount on select products',
@@ -595,10 +588,10 @@
 // //       ],
 // //       paymentMethods: ["card", "gpay", "applepay"] // Payment methods, e.g., card, gpay, applepay
 // //     },
-// //     { 
-// //       duration: '1 year', 
-// //       price: 200, 
-// //       description: 'Save $40! Billed annually at $16.67 per month', 
+// //     {
+// //       duration: '1 year',
+// //       price: 200,
+// //       description: 'Save $40! Billed annually at $16.67 per month',
 // //       benefits: [
 // //         'All 6-month subscription benefits',
 // //         'Free access to all premium content',
@@ -608,7 +601,6 @@
 // //       paymentMethods: ["card", "gpay", "applepay"] // Payment methods, e.g., card, gpay, applepay
 // //     },
 // // ];
-
 
 // //   const handleOptionSelect = (index) => {
 // //     setSelectedOption(index === selectedOption ? null : index);
@@ -642,7 +634,6 @@
 // //         // Handle error, e.g., show error message to user
 // //       });
 // //   };
-  
 
 // //   return (
 // //     <View style={styles.container}>
@@ -651,7 +642,7 @@
 // //       <ScrollView contentContainerStyle={styles.scrollContainer}>
 // //         {subscriptionOptions.map((option, index) => (
 // //           <View key={index} style={styles.optionContainer}>
-// //             <TouchableOpacity 
+// //             <TouchableOpacity
 // //               style={[
 // //                 styles.option,
 // //                 selectedOption === index && styles.selectedOption
@@ -668,8 +659,8 @@
 // //                 ))}
 // //               </View>
 // //               {selectedOption === index && (
-// //                 <TouchableOpacity 
-// //                   style={styles.paymentButton} 
+// //                 <TouchableOpacity
+// //                   style={styles.paymentButton}
 // //                   onPress={handlePayment}>
 // //                   <Text style={styles.paymentButtonText}>Pay Now</Text>
 // //                 </TouchableOpacity>
@@ -771,14 +762,6 @@
 
 // // export default Payment;
 
-
-
-
-
-
-
-
-
 // import React, { useState, useEffect } from 'react';
 // import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Linking, AsyncStorage } from 'react-native';
 // import axios from 'axios';
@@ -788,10 +771,10 @@
 //   const [selectedOption, setSelectedOption] = useState(null);
 
 //   const subscriptionOptions = [
-//     { 
-//       duration: '1 month', 
-//       price: 5, 
-//       description: 'Billed monthly at $5 per month', 
+//     {
+//       duration: '1 month',
+//       price: 5,
+//       description: 'Billed monthly at $5 per month',
 //       benefits: [
 //         'Unlock premium features',
 //         'Ad-free experience',
@@ -799,10 +782,10 @@
 //         'Priority customer support',
 //       ],
 //     },
-//     { 
-//       duration: '3 month', 
-//       price: 10, 
-//       description: 'Billed monthly at $10 per month', 
+//     {
+//       duration: '3 month',
+//       price: 10,
+//       description: 'Billed monthly at $10 per month',
 //       benefits: [
 //         'Unlock premium features',
 //         'Ad-free experience',
@@ -810,10 +793,10 @@
 //         'Priority customer support',
 //       ],
 //     },
-//     { 
-//       duration: '6 months', 
-//       price: 25, 
-//       description: 'Save $10! Billed every 6 months at $25 per month', 
+//     {
+//       duration: '6 months',
+//       price: 25,
+//       description: 'Save $10! Billed every 6 months at $25 per month',
 //       benefits: [
 //         'All monthly subscription benefits',
 //         'Additional discount on select products',
@@ -821,10 +804,10 @@
 //         'Exclusive monthly giveaways',
 //       ],
 //     },
-//     { 
-//       duration: '1 year', 
-//       price: 45, 
-//       description: 'Save $40! Billed annually at $45 per month', 
+//     {
+//       duration: '1 year',
+//       price: 45,
+//       description: 'Save $40! Billed annually at $45 per month',
 //       benefits: [
 //         'All 6-month subscription benefits',
 //         'Free access to all premium content',
@@ -907,10 +890,10 @@
 //       <Text style={styles.title}>Unlock Premium Features</Text>
 //       {/* <Text style={styles.subtitle}>Upgrade your experience and enjoy exclusive benefits!</Text> */}
 //       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        
+
 //         {subscriptionOptions.map((option, index) => (
 //           <View key={index} style={styles.optionContainer}>
-//             <TouchableOpacity 
+//             <TouchableOpacity
 //               style={[
 //                 styles.option,
 //                 selectedOption === index && styles.selectedOption
@@ -927,8 +910,8 @@
 //                 ))}
 //               </View>
 //               {selectedOption === index && (
-//                 <TouchableOpacity 
-//                   style={styles.paymentButton} 
+//                 <TouchableOpacity
+//                   style={styles.paymentButton}
 //                   onPress={handlePayment}>
 //                   <Text style={styles.paymentButtonText}>Pay Now</Text>
 //                 </TouchableOpacity>
@@ -946,7 +929,7 @@
 //     flex: 1,
 //     justifyContent: 'center',
 //     alignItems: 'center',
-//     backgroundColor: '#e6f0eb',
+//     backgroundColor: '#2db977',
 //     padding: 14,
 //   },
 //   title: {
@@ -969,7 +952,7 @@
 //   optionContainer: {
 //     width: '100%',
 //     marginBottom: 20,
-    
+
 //   },
 //   option: {
 //     width: '100%',
@@ -1036,43 +1019,6 @@
 
 // export default PaymentScreen;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { useState, useEffect } from 'react';
 // import { StyleSheet, Text, View, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
 // import axios from 'axios';
@@ -1085,10 +1031,10 @@
 //   const [clientSecret, setClientSecret] = useState(null);
 
 //   const subscriptionOptions = [
-//     { 
-//       duration: '1 month', 
-//       price: 5, 
-//       description: 'Billed monthly at $5 per month', 
+//     {
+//       duration: '1 month',
+//       price: 5,
+//       description: 'Billed monthly at $5 per month',
 //       benefits: [
 //         'Unlock premium features',
 //         'Ad-free experience',
@@ -1096,10 +1042,10 @@
 //         'Priority customer support',
 //       ],
 //     },
-//     { 
-//       duration: '3 month', 
-//       price: 10, 
-//       description: 'Billed monthly at $10 per month', 
+//     {
+//       duration: '3 month',
+//       price: 10,
+//       description: 'Billed monthly at $10 per month',
 //       benefits: [
 //         'Unlock premium features',
 //         'Ad-free experience',
@@ -1107,10 +1053,10 @@
 //         'Priority customer support',
 //       ],
 //     },
-//     { 
-//       duration: '6 months', 
-//       price: 25, 
-//       description: 'Save $10! Billed every 6 months at $25 per month', 
+//     {
+//       duration: '6 months',
+//       price: 25,
+//       description: 'Save $10! Billed every 6 months at $25 per month',
 //       benefits: [
 //         'All monthly subscription benefits',
 //         'Additional discount on select products',
@@ -1118,10 +1064,10 @@
 //         'Exclusive monthly giveaways',
 //       ],
 //     },
-//     { 
-//       duration: '1 year', 
-//       price: 45, 
-//       description: 'Save $40! Billed annually at $45 per month', 
+//     {
+//       duration: '1 year',
+//       price: 45,
+//       description: 'Save $40! Billed annually at $45 per month',
 //       benefits: [
 //         'All 6-month subscription benefits',
 //         'Free access to all premium content',
@@ -1149,11 +1095,11 @@
 //         amount,
 //         description: subscriptionOptions[selectedOption].description
 //       });
-  
+
 //       if (!response.data.clientSecret) {
 //         throw new Error('Failed to fetch client secret');
 //       }
-  
+
 //       setClientSecret(response.data.clientSecret);
 
 //       // Initialize the Payment Sheet
@@ -1161,7 +1107,7 @@
 //         paymentIntentClientSecret: response.data.clientSecret,
 //         merchantDisplayName: 'BooknGo' // Replace with your business or application name
 //       });
-  
+
 //       if (initError) {
 //         console.log('Payment Sheet initialization error:', initError);
 //         return;
@@ -1169,7 +1115,7 @@
 
 //       // Present the Payment Sheet
 //       const { error } = await presentPaymentSheet();
-  
+
 //       if (error) {
 //         console.log('Payment Sheet error:', error);
 //       } else {
@@ -1233,7 +1179,7 @@
 //       <ScrollView contentContainerStyle={styles.scrollContainer}>
 //         {subscriptionOptions.map((option, index) => (
 //           <View key={index} style={styles.optionContainer}>
-//             <TouchableOpacity 
+//             <TouchableOpacity
 //               style={[
 //                 styles.option,
 //                 selectedOption === index && styles.selectedOption
@@ -1250,8 +1196,8 @@
 //                 ))}
 //               </View>
 //               {selectedOption === index && (
-//                 <TouchableOpacity 
-//                   style={styles.paymentButton} 
+//                 <TouchableOpacity
+//                   style={styles.paymentButton}
 //                   onPress={handlePayment}>
 //                   <Text style={styles.paymentButtonText}>Pay Now</Text>
 //                 </TouchableOpacity>
@@ -1350,24 +1296,30 @@
 
 // export default PaymentScreen;
 
-
-
-
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  AsyncStorage,
+  Image,
+} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import { useStripe } from '@stripe/stripe-react-native';
+import {useStripe} from '@stripe/stripe-react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 const PaymentScreen = () => {
-  const { presentPaymentSheet, initPaymentSheet } = useStripe();
+  const {presentPaymentSheet, initPaymentSheet} = useStripe();
   const [selectedOption, setSelectedOption] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
 
   const subscriptionOptions = [
-    { 
-      duration: '1 month', 
-      price: 5, 
-      description: 'Billed monthly at $5 per month', 
+    {
+      duration: '1 month',
+      price: 5,
+      description: 'Billed monthly at $5 per month',
       benefits: [
         'Unlock premium features',
         'Ad-free experience',
@@ -1375,10 +1327,10 @@ const PaymentScreen = () => {
         'Priority customer support',
       ],
     },
-    { 
-      duration: '3 months', 
-      price: 10, 
-      description: 'Billed monthly at $10 per month', 
+    {
+      duration: '3 months',
+      price: 10,
+      description: 'Billed monthly at $10 per month',
       benefits: [
         'Unlock premium features',
         'Ad-free experience',
@@ -1386,10 +1338,10 @@ const PaymentScreen = () => {
         'Priority customer support',
       ],
     },
-    { 
-      duration: '6 months', 
-      price: 25, 
-      description: 'Save $10! Billed every 6 months at $25 per month', 
+    {
+      duration: '6 months',
+      price: 25,
+      description: 'Save $10! Billed every 6 months at $25 per month',
       benefits: [
         'All monthly subscription benefits',
         'Additional discount on select products',
@@ -1397,10 +1349,10 @@ const PaymentScreen = () => {
         'Exclusive monthly giveaways',
       ],
     },
-    { 
-      duration: '1 year', 
-      price: 45, 
-      description: 'Save $40! Billed annually at $45 per year', 
+    {
+      duration: '1 year',
+      price: 45,
+      description: 'Save $40! Billed annually at $45 per year',
       benefits: [
         'All 6-month subscription benefits',
         'Free access to all premium content',
@@ -1410,7 +1362,7 @@ const PaymentScreen = () => {
     },
   ];
 
-  const handleOptionSelect = (index) => {
+  const handleOptionSelect = index => {
     setSelectedOption(index === selectedOption ? null : index);
   };
 
@@ -1424,17 +1376,20 @@ const PaymentScreen = () => {
 
     try {
       // Fetch PaymentIntent client secret from your backend
-      const response = await fetch('http://192.168.15.171:3000/create-payment-intent', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'http://192.168.15.171:3000/create-payment-intent',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            amount,
+
+            description: subscriptionOptions[selectedOption].description,
+          }),
         },
-        body: JSON.stringify({
-          amount,
-          
-          description: subscriptionOptions[selectedOption].description,
-        }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error('Failed to fetch client secret');
@@ -1448,7 +1403,7 @@ const PaymentScreen = () => {
       setClientSecret(data.clientSecret);
 
       // Initialize the Payment Sheet
-      const { error: initError } = await initPaymentSheet({
+      const {error: initError} = await initPaymentSheet({
         paymentIntentClientSecret: data.clientSecret,
         merchantDisplayName: 'BooknGo', // Replace with your business or application name
       });
@@ -1459,7 +1414,7 @@ const PaymentScreen = () => {
       }
 
       // Present the Payment Sheet
-      const { error } = await presentPaymentSheet();
+      const {error} = await presentPaymentSheet();
 
       if (error) {
         console.log('Payment Sheet error:', error);
@@ -1482,7 +1437,7 @@ const PaymentScreen = () => {
 
       // Fetch the latest payment details from your backend
       const response = await fetch('http://192.168.15.171:3000/latest-payment');
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch latest payment');
       }
@@ -1512,7 +1467,7 @@ const PaymentScreen = () => {
       }
 
       const userData = userDoc.data();
-      const { name, mobileNumber } = userData;
+      const {name, mobileNumber} = userData;
 
       // Store payment status in Firestore under 'Premium' collection
       const premiumRef = firestore().collection('Premium').doc(email);
@@ -1535,48 +1490,210 @@ const PaymentScreen = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Unlock Premium Features</Text>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        {subscriptionOptions.map((option, index) => (
-          <View key={index} style={styles.optionContainer}>
-            <TouchableOpacity 
-              style={[
-                styles.option,
-                selectedOption === index && styles.selectedOption
-              ]}
-              onPress={() => handleOptionSelect(index)}
-            >
-              <Text style={styles.optionTitle}>{option.duration}</Text>
-              <Text style={styles.optionPrice}>${option.price}</Text>
-              <Text style={styles.optionDescription}>{option.description}</Text>
-              <Text style={styles.benefitTitle}>Benefits:</Text>
-              <View>
-                {option.benefits.map((benefit, index) => (
-                  <Text key={index} style={styles.benefit}>{'\u2022'} {benefit}</Text>
-                ))}
-              </View>
-              {selectedOption === index && (
-                <TouchableOpacity 
-                  style={styles.paymentButton} 
-                  onPress={handlePayment}>
-                  <Text style={styles.paymentButtonText}>Pay Now</Text>
-                </TouchableOpacity>
-              )}
-            </TouchableOpacity>
+    <>
+      <LinearGradient
+        colors={['#01b25f', '#2db977']} // Gradient colors
+        style={styles.gradient} // Apply the gradient style
+      >
+        <View style={styles.parent}>
+          <View style={styles.child}>
+            
+            <Image
+              source={{
+                uri: 'https://i.pinimg.com/564x/cc/92/38/cc923814805def4a9cd39b6c23a9a638.jpg',
+              }}
+              style={styles.backgroundImage}
+            />
           </View>
-        ))}
-      </ScrollView>
-    </View>
+        </View>
+        <Text style={styles.title}>Unlock Premium Features</Text>
+        {/* <View style={styles.overlayContainer}> */}
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          {/* <View style={styles.container}> */}
+
+          {subscriptionOptions.map((option, index) => (
+            <View key={index} style={styles.optionContainer}>
+              <TouchableOpacity
+                style={[
+                  styles.option,
+                  selectedOption === index && styles.selectedOption,
+                ]}
+                onPress={() => handleOptionSelect(index)}>
+                <Text style={styles.optionTitle}>
+                  {option.duration} - ${option.price}
+                </Text>
+                {/* <Text style={styles.optionPrice}>${option.price}</Text> */}
+                <Text style={styles.optionDescription}>
+                  {option.description}
+                </Text>
+                <Text style={styles.benefitTitle}>Benefits:</Text>
+                <View>
+                  {option.benefits.map((benefit, index) => (
+                    <Text key={index} style={styles.benefit}>
+                      {'\u2022'} {benefit}
+                    </Text>
+                  ))}
+                </View>
+                {selectedOption === index && (
+                  <TouchableOpacity
+                    style={styles.paymentButton}
+                    onPress={handlePayment}>
+                    <Text style={styles.paymentButtonText}>Pay Now</Text>
+                  </TouchableOpacity>
+                )}
+              </TouchableOpacity>
+            </View>
+          ))}
+          {/* </View>     */}
+        </ScrollView>
+      </LinearGradient>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  child: {
+    flex: 1,
+    transform: [{scaleX: 0.5}],
+
+    backgroundColor: '#01b05f',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  parent: {
+    height: '35%',
+    width: '100%',
+    transform: [{scaleX: 2}],
+    borderBottomStartRadius: 300,
+    borderBottomEndRadius: 100,
+    overflow: 'hidden',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#e6dede5b',
+  },
+  blackText: {
+    color: 'black',
+    fontFamily: 'Poppins-Bold',
+    paddingHorizontal: 0, // Add horizontal padding
+    paddingVertical: 10,
+  },
+
+  orangeText: {
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
+    paddingHorizontal: 0, // Add horizontal padding
+    paddingVertical: 10,
+  },
+  orangeText2: {
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // or 'stretch' or 'contain'
+    position: 'absolute',
+    width: '100%',
+    marginLeft: '5%',
+    marginTop: '15%',
+    height: '100%',
+    transform: [{scaleX: 1}],
+    // borderBottomStartRadius : 300,
+    // borderBottomEndRadius : 100,
+  },
+  overlayContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+  },
+  overlayContainer2: {
+    flex: 1,
+    backgroundColor: 'rgba(189, 177, 177, 0)',
+  },
+  overlayContent: {},
+  text: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: '2%',
+    color: '#01b05f',
+    fontFamily: 'Poppins-Bold',
+    paddingHorizontal: 10, // Add horizontal padding
+    paddingVertical: 0,
+  },
+  Image: {
+    width: '10%',
+    height: '20%',
+    // marginTop: '30%',
+    marginRight: '70%',
+
+    resizeMode: 'contain',
+  },
+  Image2: {
+    width: '10%',
+    height: '20%',
+    marginTop: '1%',
+    // marginRight: '40%',
+    marginLeft: '90%',
+    resizeMode: 'contain',
+  },
+  Image3: {
+    width: '10%',
+    height: '10%',
+
+    marginLeft: '75%',
+    bottom: 240,
+  },
+  Image4: {
+    width: '8%',
+    height: '8%',
+
+    marginRight: '90%',
+    bottom: 90,
+  },
+
+  loremText: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#333',
+    marginTop: 5,
+    fontFamily: 'Poppins-Bold',
+    paddingHorizontal: 10, // Add horizontal padding
+    paddingVertical: 10,
+  },
+
+  loremText2: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#000000',
+    marginTop: 30,
+    fontFamily: 'Poppins-Bold',
+  },
+  button: {
+    backgroundColor: '#01b05f',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    width: '80%',
+    borderRadius: 30,
+    marginLeft: '10%',
+    marginTop: 20,
+    fontFamily: 'Poppins-Bold',
+  },
+
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: 'Poppins-Bold',
+  },
+  gradient: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e6f0eb',
+    // backgroundColor: '#e6f0eb',
     padding: 14,
   },
   title: {
@@ -1584,58 +1701,67 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-SemiBold',
     marginBottom: 10,
     marginTop: 20,
+    color: '#e6f0eb',
+
+textAlign:'center'
+
+
   },
   scrollContainer: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 50,
+
+    paddingHorizontal: 20,
   },
   optionContainer: {
     width: '100%',
     marginBottom: 20,
+    backgroundColor: '#f1f1f1b6',
+    borderRadius: 30,
   },
   option: {
     width: '100%',
     padding: 20,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    backgroundColor: '#6bc7a7',
+    borderRadius: 30,
+    // borderWidth: 1,
+    // borderColor: '#706f6f',
+    // backgroundColor: '#d6d8d78a',
     position: 'relative',
   },
   selectedOption: {
-    elevation: 8,
+    // elevation: 8,
     width: '100%',
   },
   optionTitle: {
     fontSize: 20,
     marginBottom: 10,
-    color: '#e6f0eb',
+    color: '#125a38',
     fontFamily: 'Poppins-SemiBold',
   },
   optionPrice: {
     fontSize: 18,
     marginBottom: 5,
-    color: '#e6f0eb',
+    color: '#2db977',
     fontFamily: 'Poppins-SemiBold',
   },
   optionDescription: {
     fontSize: 16,
     marginBottom: 10,
-    color: '#e6f0eb',
+    color: '#2db977',
     fontFamily: 'Poppins-SemiBold',
   },
   benefitTitle: {
     fontSize: 16,
-    color: '#e6f0eb',
+    color: '#2db977',
     marginBottom: 5,
     fontFamily: 'Poppins-SemiBold',
   },
   benefit: {
     fontSize: 14,
     marginLeft: 20,
-    color: '#e6f0eb',
+    color: '#2db977',
     marginBottom: 5,
     fontFamily: 'Poppins-Regular',
   },
@@ -1647,6 +1773,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginTop: 10,
     alignSelf: 'center',
+    borderRadius: 30,
   },
   paymentButtonText: {
     fontSize: 16,

@@ -30,7 +30,7 @@ const Splash = ({ navigation }) => {
           style={[styles.backgroundImage, { transform: [{ scale: scaleValue }] }]} // Scale animation apply kiya gaya hai
         /> */}
         <Animated.Image
-          source={require('../components/assets/w.png')}
+          source={require('../components/assets/ee.png')}
           style={[styles.backgroundImage, { transform: [{ scale: scaleValue }] }]} // Scale animation apply kiya gaya hai
         />
         {/* <Text>Book and GO with Book-n-Go</Text> */}

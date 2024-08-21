@@ -1,15 +1,22 @@
 
 
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper';
+import CardList from './Card';
 
-const Safety = () => {
+const Safety = ({navigation}) => {
   return (
+       <>
+<View style={styles.closeButtonContainer}>
+        <TouchableOpacity onPress={() => { navigation.navigate('TabNavigator'); }}>
+          <Image style={styles.cross} source={require('../components/assets/close.png')} />
+        </TouchableOpacity>
+      </View>
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <Image source={require('../components/assets/car.jpg')} style={styles.headerImage} />
-
-      <Title style={styles.heading}>Rideshare Safety Tips</Title>
+      {/* <Image source={require('../components/assets/car.jpg')} style={styles.headerImage} /> */}
+      <Title style={styles.heading}>Book-n-Go Safety Tips</Title>
+{/* <CardList/> */}
       <Paragraph style={styles.text}>
         Ridesharing can be great fun, but sharing a ride with a stranger can be a bit daunting, especially if you have never done it before. To make sure you have an amazing experience, we've put together some tips to keep you safe.
       </Paragraph>
@@ -38,7 +45,7 @@ const Safety = () => {
         </Card.Content>
       </Card>
 
-      <Image source={require('../components/assets/trippage.jpg')} style={styles.image2} />
+      <Image source={{uri:'https://i.pinimg.com/564x/63/6f/fc/636ffc28f1d1e8a475599f066509fa38.jpg'}} style={styles.image2} />
 
       <Paragraph style={styles.text}>
         Make sure you are both on the same page before you head off. Agree on your trip details such as the cost (including how and when you will pay); pick-up and drop-off times; breaks and sightseeing; is smoking allowed etc.
@@ -68,7 +75,7 @@ const Safety = () => {
         </Card.Content>
       </Card>
 
-      <Image source={require('../components/assets/share2.jpg')} style={styles.image3} />
+      <Image source={{uri:'https://i.pinimg.com/564x/61/5c/2e/615c2eff6e4ad6dd6540a38814a69968.jpg'}} style={styles.image3} />
 
       <Paragraph style={styles.text}>
         Keep your home, work or friends / family addresses private by arranging public pick-up and drop-off points.
@@ -83,7 +90,7 @@ const Safety = () => {
         </Card.Content>
       </Card>
 
-      <Image source={require('../components/assets/cash.png')} style={styles.image4} />
+      <Image source={{uri:'https://i.pinimg.com/564x/71/ff/14/71ff14e015394c33f54ad891890de2ef.jpg'}} style={styles.image4} />
 
       <Paragraph style={styles.text}>
         Always keep a credit or debit card, your ID, and some cash with you in case you get stranded or separated from your driver for any reason.
@@ -102,15 +109,29 @@ const Safety = () => {
         And last but not least... enjoy your trip!
       </Text>
     </ScrollView>
+     </>
   );
 };
 
 export default Safety;
 
 const styles = StyleSheet.create({
+  closeButtonContainer: {
+    alignItems: 'flex-start',
+    // padding: 10,
+    marginTop:20,
+    paddingHorizontal:20,
+    marginBottom:10,
+    // backgroundColor: '#00000000',
+  },
+  cross: {
+    width: 20,
+    height: 20,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
+    padding:20,
+    // backgroundColor: '#2db977',
   },
   contentContainer: {
     // paddingHorizontal: 20,
@@ -124,23 +145,27 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 24,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginVertical: 20,
     textAlign: 'center',
     color: '#333',
+    fontFamily: 'Poppins-SemiBold',
+    marginTop:20,
   },
   subheading: {
     
     fontSize: 18,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginVertical: 10,
     color: '#333',
+    fontFamily: 'Poppins-SemiBold',
   },
   text: {
     paddingHorizontal: 20,
 
     fontSize: 14,
     color: '#333',
+    fontFamily: 'Poppins-Regular',
     marginVertical: 10,
     lineHeight: 20,
   },
@@ -151,6 +176,7 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: 14,
     color: '#333',
+    fontFamily: 'Poppins-Regular',
     lineHeight: 20,
   },
   image: {
@@ -176,7 +202,7 @@ const styles = StyleSheet.create({
 
   image4: {
     width: '100%',
-    height: 150,
+    height: 250,
     
     marginVertical: 10,
   },

@@ -109,7 +109,7 @@ const TripModal = ({
                     setSelectedDate(day.dateString);
                   }}
                   markedDates={{
-                    [selectedDate]: { selected: true, marked: true, selectedColor: '#ecc235c9' },
+                    [selectedDate]: { selected: true, marked: true, selectedColor: '#2db977' },
                   }}
                 />
               </View>
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
       },
       input: {
         height: 40,
-        borderColor: '#ecc235c9',
+        borderColor: '#2db977',
         color:'black',
         borderWidth: 1,
         marginBottom: 0,
@@ -187,22 +187,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
       },
       selectedOption: {
-        backgroundColor: '#ffc710eb',
+        backgroundColor: '#2db977',
       },
       optionText: {
         color: '#333',
+        fontFamily: 'Poppins-SemiBold',
+        
       },
       touchableButton: {
         bottom:70,
-        backgroundColor: '#ecc235c9',
+        backgroundColor: '#2db977',
         padding: 10,
-        borderRadius: 5,
+        borderRadius: 45,
         marginTop: 10,
         alignItems: 'center',
       },
       buttonText: {
         color: '#FFFFFF',
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        fontFamily: 'Poppins-SemiBold',
+    
       },
       title: {
         fontSize: 14,
@@ -213,6 +217,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginBottom:5,
         color:'#000000',
+        fontFamily: 'Poppins-SemiBold',
     
       },
 });

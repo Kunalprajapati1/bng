@@ -354,7 +354,7 @@ const Profile = () => {
   const colorScheme = useColorScheme();
   const [email, setEmail] = useState('')
 
-  const primaryColor = '#FFEB3B'; // Yellow
+  const primaryColor = '#2db977'; // Yellow
   const secondaryColor = '#FFFFFF'; // White
   const textColor = '#000000'; // Black
 
@@ -402,7 +402,7 @@ const Profile = () => {
     try {
       await AsyncStorage.clear(); // Clear any async data if necessary
       await firebase.auth().signOut();
-      navigation.navigate('TabNavigator'); // Navigate to the Home screen
+      navigation.navigate('Login'); // Navigate to the Home screen
     } catch (error) {
       console.error('Error signing out:', error);
     }
@@ -419,9 +419,10 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: 'https://i.pinimg.com/564x/34/31/96/343196e4a28ee4d35481294f96e227ad.jpg' }}
+        source={{ uri: 'https://i.pinimg.com/564x/4d/5e/72/4d5e720188193fbdc31a6e6abc2ddbfb.jpg' }}
         style={styles.image}
       />
+      
       <View style={styles.content}>
         {/* <Text style={styles.title}>Profile</Text> */}
         <View style={styles.detailsContainer}>
@@ -442,9 +443,9 @@ const Profile = () => {
   <Text style={styles.detailText2}>{capitalizeFirstLetter(userDetails.gender)}</Text>
 </View>
           <View style={styles.buttonContainer}>
-            {/* <TouchableOpacity onPress={handleLogout} style={styles.button}>
+            <TouchableOpacity onPress={handleLogout} style={styles.button}>
               <Text style={styles.buttonText}>Logout</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>  
           </View>
           <View style={styles.buttonContainer}>
             {/* <TouchableOpacity onPress={handleLogout} style={styles.button}>
@@ -460,17 +461,17 @@ const Profile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e6f0eb', // Yellow
+    // backgroundColor: '#e6f0eb', // Yellow
   },
   image: {
     width: '100%',
-    height: 300,
+    height: 400,
     resizeMode: 'cover',
   },
   content: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#e6f0eb', // White
+    backgroundColor: '#c0ebd6e4', // White
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     marginTop: -20,
@@ -494,6 +495,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
    fontFamily: 'Poppins-Bold',
     marginRight: 10,
+
+    color:'#0b3520',
   },
   detailText: {
     fontSize: 16,
@@ -507,7 +510,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: '#29070798', // Example button color
+    backgroundColor: '#a11d1db4', // Example button color
     borderRadius: 25,
     paddingVertical: 8,
     paddingHorizontal: 20,

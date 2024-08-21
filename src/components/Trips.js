@@ -812,17 +812,17 @@ const Trips = () => {
       <ScrollView contentContainerStyle={styles.scrollView}>
 
         {isLoading ? (
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color='white' />
         ) : (
           <>
             <View style={styles.container1}>
               <View style={styles.imageContainer}>
                 <Image 
-                  source={{ uri: 'https://i.pinimg.com/564x/cb/e3/8d/cbe38d855106d006061de795e541bd9f.jpg' }} 
+                  source={{ uri: 'https://i.pinimg.com/564x/22/69/13/226913b15bd799765b7def4e567d9863.jpg' }} 
                   style={styles.image}
                 />
                 <LinearGradient
-                  colors={['rgba(0, 0, 0, 0.3)', 'rgba(167, 215, 209, 0.452)']} // Gradient colors
+                  colors={['rgba(0, 0, 0, 0.3)', 'rgba(24, 30, 29, 0.452)']} // Gradient colors
                   style={styles.overlay}
                 >
                   <Text style={styles.overlayText}>My Trips</Text>
@@ -848,7 +848,10 @@ const Trips = () => {
                       )}
                     </TouchableOpacity>
                   ) : (
-                    <Text style={styles.cannotDeleteText}>You can delete only upcoming trips</Text>
+                    <View   style={styles.deleteButton}>
+                      <Text style={styles.cannotDeleteText}>You can delete only upcoming trips</Text>
+
+                      </View>
                   )}
                 </View>
               ))}
@@ -881,9 +884,9 @@ const styles = StyleSheet.create({
   overlay: {
     position: 'absolute',
     top: 0,
-    width: 340, // Adjust as needed
+    width: 380, // Adjust as needed
     height: 250, 
-    right: 30,
+    right:35,
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
@@ -945,10 +948,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
   },
   cannotDeleteText: {
-    marginTop: 10,
+    // marginTop: ,
     fontSize: 16,
-    color: '#000000',
+    color: '#ffffff',
     textAlign: 'center',
+
+    fontFamily: 'Poppins-Bold',
   },
 });
 
